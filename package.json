@@ -1,21 +1,30 @@
 {
   "name": "dilmune-theme",
   "displayName": "Dilmune Theme",
-  "description": "A warm, terracotta-accented theme family inspired by the Dilmune Cloud design system. 14 themes: Light, Dim, Dim Warm, Dim Deep, and Dark with Muted, Soft, and High Contrast variants.",
+  "description": "14 warm, bold themes built around the Dilmune brand red. Dim mode is the flagship — warm dark brown like a candlelit study. Also ships Light, Dark, and variant modes for every preference.",
   "version": "1.0.0",
   "publisher": "dilmune",
   "license": "MIT",
   "icon": "icon.png",
   "galleryBanner": {
-    "color": "#c66a3b",
+    "color": "#d13e36",
     "theme": "dark"
+  },
+  "homepage": "https://github.com/Dilmune/dilmune-vscode-theme",
+  "bugs": {
+    "url": "https://github.com/Dilmune/dilmune-vscode-theme/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Dilmune/dilmune-vscode-theme"
   },
   "categories": ["Themes"],
-  "keywords": ["theme", "dark", "light", "warm", "terracotta", "color-theme", "dilmune"],
+  "keywords": [
+    "theme", "color-theme", "dark", "light", "dim",
+    "warm", "warm-dark", "terracotta", "earthy", "cozy",
+    "dilmune", "gruvbox-alternative", "eye-comfort",
+    "brown", "red"
+  ],
   "engines": { "vscode": "^1.80.0" },
   "contributes": {
     "themes": [

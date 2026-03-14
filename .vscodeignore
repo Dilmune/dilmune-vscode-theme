@@ -5,5 +5,9 @@ node_modules/
 tsconfig.json
 dist/
 *.ts
+*.vsix
 .gitignore
 .git/
+.github/
+package-lock.json
+docs/
