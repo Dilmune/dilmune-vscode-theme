@@ -24,5 +24,8 @@ export function buildSemanticTokenColors(
     number: colors.constant,
     keyword: colors.keyword,
     operator: colors.operator,
+    '*.deprecated': { fontStyle: 'strikethrough' },
+    'variable.defaultLibrary': { foreground: colors.keyword, fontStyle: 'italic' },
+    selfKeyword: { foreground: colors.keyword, fontStyle: 'italic' },
   }
 }

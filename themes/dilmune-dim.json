@@ -108,7 +108,8 @@
     "editor.inactiveSelectionBackground": "#e6443a1f",
     "editor.selectionHighlightBackground": "#e6443a14",
     "editor.wordHighlightBackground": "#e6443a1a",
-    "editor.wordHighlightStrongBackground": "#e6443a26",
+    "editor.wordHighlightStrongBackground": "#e6443a40",
+    "editor.wordHighlightStrongBorder": "#e6443a66",
     "editor.findMatchBackground": "#de93004d",
     "editor.findMatchHighlightBackground": "#de930026",
     "editorCursor.foreground": "#e6443a",
@@ -155,6 +156,8 @@
     "keybindingLabel.border": "#dbd7d01f",
     "keybindingLabel.bottomBorder": "#dbd7d02e",
     "tab.lastPinnedBorder": "#51453e",
+    "tab.unfocusedModifiedBorder": "#e6443a80",
+    "tab.modifiedBorder": "#e6443a",
     "panelTitle.activeBorder": "#e6443a",
     "panelTitle.activeForeground": "#dbd7d0",
     "panelTitle.inactiveForeground": "#8e847e",
@@ -228,7 +231,15 @@
     "terminal.ansiBrightBlue": "#48a1db",
     "terminal.ansiBrightMagenta": "#e0a0a0",
     "terminal.ansiBrightCyan": "#88d4c8",
-    "terminal.ansiBrightWhite": "#ffffff"
+    "terminal.ansiBrightWhite": "#ffffff",
+    "editorUnnecessaryCode.opacity": "#00000088",
+    "editorUnnecessaryCode.border": "#00000000",
+    "activityBar.activeBorder": "#e6443a",
+    "statusBarItem.remoteBackground": "#e6443a",
+    "statusBarItem.remoteForeground": "#0f0a08",
+    "statusBarItem.remoteHoverBackground": "#f14f43",
+    "searchEditor.findMatchBackground": "#de930033",
+    "searchEditor.findMatchBorder": "#de930080"
   },
   "tokenColors": [
     {
@@ -327,7 +338,15 @@
       "name": "Operators",
       "scope": [
         "keyword.operator",
-        "punctuation"
+        "keyword.operator.assignment",
+        "keyword.operator.comparison",
+        "keyword.operator.logical",
+        "keyword.operator.arithmetic",
+        "keyword.operator.ternary",
+        "keyword.operator.spread",
+        "keyword.operator.rest",
+        "keyword.operator.type",
+        "keyword.operator.expression"
       ],
       "settings": {
         "foreground": "#827873"
@@ -439,15 +458,6 @@
       ],
       "settings": {
         "foreground": "#f0503d"
-      }
-    },
-    {
-      "name": "TSX embedded expressions",
-      "scope": [
-        "punctuation.section.embedded"
-      ],
-      "settings": {
-        "foreground": "#827873"
       }
     },
     {
@@ -582,6 +592,60 @@
       "settings": {
         "foreground": "#24a684"
       }
+    },
+    {
+      "name": "This/self/super",
+      "scope": [
+        "variable.language.this",
+        "variable.language.self",
+        "variable.language.super"
+      ],
+      "settings": {
+        "foreground": "#ff412d",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Type parameters",
+      "scope": [
+        "entity.name.type.parameter",
+        "meta.type.parameters"
+      ],
+      "settings": {
+        "foreground": "#ed7940",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Import/export",
+      "scope": [
+        "keyword.control.import",
+        "keyword.control.export",
+        "keyword.control.from"
+      ],
+      "settings": {
+        "foreground": "#ff412d",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Interface declarations",
+      "scope": [
+        "entity.name.type.interface"
+      ],
+      "settings": {
+        "foreground": "#ed7940",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Deprecated",
+      "scope": [
+        "invalid.deprecated"
+      ],
+      "settings": {
+        "fontStyle": "strikethrough"
+      }
     }
   ],
   "semanticTokenColors": {
@@ -606,6 +670,17 @@
     "string": "#ce9200",
     "number": "#ec7d00",
     "keyword": "#ff412d",
-    "operator": "#827873"
+    "operator": "#827873",
+    "*.deprecated": {
+      "fontStyle": "strikethrough"
+    },
+    "variable.defaultLibrary": {
+      "foreground": "#ff412d",
+      "fontStyle": "italic"
+    },
+    "selfKeyword": {
+      "foreground": "#ff412d",
+      "fontStyle": "italic"
+    }
   }
 }

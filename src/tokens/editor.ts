@@ -126,7 +126,8 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'editor.inactiveSelectionBackground': withOpacity(colors.primary, selectionOpacity * 0.6),
     'editor.selectionHighlightBackground': withOpacity(colors.primary, 0.08),
     'editor.wordHighlightBackground': withOpacity(colors.primary, 0.10),
-    'editor.wordHighlightStrongBackground': withOpacity(colors.primary, 0.15),
+    'editor.wordHighlightStrongBackground': withOpacity(colors.primary, 0.25),
+    'editor.wordHighlightStrongBorder': withOpacity(colors.primary, 0.4),
     'editor.findMatchBackground': withOpacity(colors.warning, 0.30),
     'editor.findMatchHighlightBackground': withOpacity(colors.warning, 0.15),
     'editorCursor.foreground': colors.primary,
@@ -195,6 +196,8 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
 
     // ── Tab modified indicator ────────────────────────────────────
     'tab.lastPinnedBorder': colors.border,
+    'tab.unfocusedModifiedBorder': withOpacity(colors.primary, 0.5),
+    'tab.modifiedBorder': colors.primary,
 
     // ── Panel title ──────────────────────────────────────────────
     'panelTitle.activeBorder': colors.primary,
@@ -309,5 +312,21 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'terminal.ansiBrightMagenta': isLight ? '#8a4a5a' : '#e0a0a0',
     'terminal.ansiBrightCyan': isLight ? '#2a7a6a' : '#88d4c8',
     'terminal.ansiBrightWhite': isLight ? colors.foreground : '#ffffff',
+
+    // ── Unused code ────────────────────────────────────────────────
+    'editorUnnecessaryCode.opacity': '#00000088',
+    'editorUnnecessaryCode.border': '#00000000',
+
+    // ── Activity bar active indicator ──────────────────────────────
+    'activityBar.activeBorder': colors.primary,
+
+    // ── Remote indicator (SSH, containers, WSL) ────────────────────
+    'statusBarItem.remoteBackground': colors.primary,
+    'statusBarItem.remoteForeground': colors.primaryForeground,
+    'statusBarItem.remoteHoverBackground': adjustLightness(colors.primary, isLight ? -0.03 : 0.03),
+
+    // ── Search editor ──────────────────────────────────────────────
+    'searchEditor.findMatchBackground': withOpacity(colors.warning, 0.20),
+    'searchEditor.findMatchBorder': withOpacity(colors.warning, 0.5),
   }
 }

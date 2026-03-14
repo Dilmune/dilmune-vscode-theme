@@ -48,7 +48,18 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
     },
     {
       name: 'Operators',
-      scope: ['keyword.operator', 'punctuation'],
+      scope: [
+        'keyword.operator',
+        'keyword.operator.assignment',
+        'keyword.operator.comparison',
+        'keyword.operator.logical',
+        'keyword.operator.arithmetic',
+        'keyword.operator.ternary',
+        'keyword.operator.spread',
+        'keyword.operator.rest',
+        'keyword.operator.type',
+        'keyword.operator.expression',
+      ],
       settings: { foreground: colors.operator },
     },
     {
@@ -107,11 +118,6 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       name: 'TSX component tags',
       scope: ['support.class.component.tsx', 'support.class.component.jsx'],
       settings: { foreground: colors.tag },
-    },
-    {
-      name: 'TSX embedded expressions',
-      scope: ['punctuation.section.embedded'],
-      settings: { foreground: colors.operator },
     },
     {
       name: 'TypeScript types',
@@ -188,6 +194,33 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       name: 'Markdown links',
       scope: ['markup.underline.link'],
       settings: { foreground: colors.function },
+    },
+    // Font style depth
+    {
+      name: 'This/self/super',
+      scope: ['variable.language.this', 'variable.language.self', 'variable.language.super'],
+      settings: { foreground: colors.keyword, fontStyle: 'italic' },
+    },
+    {
+      name: 'Type parameters',
+      scope: ['entity.name.type.parameter', 'meta.type.parameters'],
+      settings: { foreground: colors.type, fontStyle: 'italic' },
+    },
+    {
+      name: 'Import/export',
+      scope: ['keyword.control.import', 'keyword.control.export', 'keyword.control.from'],
+      settings: { foreground: colors.keyword, fontStyle: 'italic' },
+    },
+    {
+      name: 'Interface declarations',
+      scope: ['entity.name.type.interface'],
+      settings: { foreground: colors.type, fontStyle: 'italic' },
+    },
+    // Deprecated
+    {
+      name: 'Deprecated',
+      scope: ['invalid.deprecated'],
+      settings: { fontStyle: 'strikethrough' },
     },
   ]
 }
