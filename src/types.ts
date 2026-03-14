@@ -1,4 +1,4 @@
-export type Mode = 'light' | 'dim' | 'dark'
+export type Mode = 'light' | 'dim' | 'dim-warm' | 'dim-deep' | 'dark'
 export type Variant = 'default' | 'soft' | 'muted' | 'high-contrast'
 
 export interface ThemeConfig {

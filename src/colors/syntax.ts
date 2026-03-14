@@ -59,8 +59,46 @@ const dimSyntax: SyntaxColors = {
   namespace: hex(0.58, 0.10, 150),
 }
 
+// Dim Warm: same as dim but warmer undertones on warm hues
+const dimWarmSyntax: SyntaxColors = {
+  keyword: hex(0.68, 0.24, 35),
+  string: hex(0.70, 0.15, 85),
+  function: hex(0.65, 0.12, 170),
+  type: hex(0.70, 0.16, 50),
+  variable: hex(0.78, 0.015, 65),
+  constant: hex(0.70, 0.18, 65),
+  comment: hex(0.48, 0.015, 50),
+  operator: hex(0.58, 0.015, 50),
+  tag: hex(0.65, 0.20, 35),
+  attribute: hex(0.68, 0.14, 80),
+  cssProperty: hex(0.65, 0.12, 170),
+  regex: hex(0.65, 0.16, 15),
+  decorator: hex(0.58, 0.08, 55),
+  namespace: hex(0.58, 0.10, 150),
+}
+
+// Dim Deep: same as dim but slightly brighter for darker background
+const dimDeepSyntax: SyntaxColors = {
+  keyword: hex(0.71, 0.24, 30),
+  string: hex(0.73, 0.15, 80),
+  function: hex(0.68, 0.12, 170),
+  type: hex(0.73, 0.16, 45),
+  variable: hex(0.81, 0.015, 60),
+  constant: hex(0.73, 0.18, 60),
+  comment: hex(0.51, 0.015, 50),
+  operator: hex(0.61, 0.015, 50),
+  tag: hex(0.68, 0.20, 30),
+  attribute: hex(0.71, 0.14, 75),
+  cssProperty: hex(0.68, 0.12, 170),
+  regex: hex(0.68, 0.16, 10),
+  decorator: hex(0.61, 0.08, 50),
+  namespace: hex(0.61, 0.10, 150),
+}
+
 export const syntaxColors: Record<Mode, SyntaxColors> = {
   light: lightSyntax,
   dim: dimSyntax,
+  'dim-warm': dimWarmSyntax,
+  'dim-deep': dimDeepSyntax,
   dark: darkSyntax,
 }
