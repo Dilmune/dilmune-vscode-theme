@@ -1,0 +1,46 @@
+{
+  "name": "dilmune-cloud",
+  "version": "3.2.1",
+  "description": "Cloud hosting platform configuration",
+  "production": true,
+  "replicas": 3,
+  "settings": {
+    "region": "eu-central-1",
+    "tier": "professional",
+    "autoscale": {
+      "enabled": true,
+      "minInstances": 2,
+      "maxInstances": 10,
+      "targetCPU": 75.0
+    },
+    "backup": {
+      "enabled": true,
+      "schedule": "0 3 * * *",
+      "retentionDays": 30,
+      "destinations": ["s3://backups-primary", "s3://backups-replica"]
+    }
+  },
+  "features": ["ssl", "cdn", "monitoring", "alerts"],
+  "limits": {
+    "maxStorage": 107374182400,
+    "maxBandwidth": null,
+    "rateLimit": 1000
+  },
+  "contacts": [
+    {
+      "name": "Operations Team",
+      "email": "ops@dilmune.com",
+      "priority": 1
+    },
+    {
+      "name": "Engineering Lead",
+      "email": "eng@dilmune.com",
+      "priority": 2
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-08-15T09:30:00Z",
+    "updatedAt": "2026-02-20T14:22:00Z",
+    "tags": ["production", "eu", "managed"]
+  }
+}

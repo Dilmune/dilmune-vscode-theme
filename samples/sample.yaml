@@ -1,0 +1,65 @@
+# Application deployment configuration
+app:
+  name: dilmune-api
+  version: "3.2.1"
+  environment: production
+
+# Shared defaults
+defaults: &defaults
+  restart_policy: always
+  health_check:
+    path: /healthz
+    interval: 30s
+    timeout: 5s
+    retries: 3
+
+services:
+  api:
+    <<: *defaults
+    image: registry.dilmune.com/api:latest
+    replicas: 3
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+    environment:
+      DATABASE_URL: postgres://db:5432/dilmune
+      REDIS_URL: redis://cache:6379
+      LOG_LEVEL: info
+      ENABLE_METRICS: true
+    resources:
+      cpu: "500m"
+      memory: "512Mi"
+    volumes:
+      - /var/log/api:/app/logs:rw
+
+  worker:
+    <<: *defaults
+    image: registry.dilmune.com/worker:latest
+    replicas: 2
+    environment:
+      QUEUE_CONCURRENCY: 10
+      BATCH_SIZE: 50
+
+# Database connection pool
+database:
+  host: db.internal.dilmune.com
+  port: 5432
+  name: dilmune_production
+  pool:
+    min_connections: 5
+    max_connections: 25
+    idle_timeout: 300s
+  ssl:
+    enabled: true
+    cert_path: /etc/ssl/db-client.crt
+
+# Multi-line description for documentation
+description: |
+  Production deployment for the Dilmune Cloud API.
+  This configuration manages the core API service
+  and background job workers.
+
+tags:
+  - production
+  - managed
+  - eu-central

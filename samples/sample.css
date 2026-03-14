@@ -1,0 +1,75 @@
+:root {
+  --color-primary: #c66a3b;
+  --color-surface: #faf8f5;
+  --color-text: #2c2420;
+  --radius-md: 8px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --transition-base: 200ms ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.card {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+  transition: transform var(--transition-base);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.card__title::first-letter {
+  font-size: 1.4em;
+  color: var(--color-primary);
+}
+
+.badge[data-status='active'] {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge[data-status='inactive'] {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-enter {
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #1a1614;
+    --color-text: #e8e0d8;
+  }
+}
