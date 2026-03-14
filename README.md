@@ -39,7 +39,23 @@ Warm cream — never sterile white. Like aged paper.
 
 ## Screenshots
 
-> Screenshots coming soon. In the meantime, install it and hit `Cmd+K Cmd+T`.
+### Dilmune Dim (Flagship)
+![Dilmune Dim](screenshots/dim.png)
+
+### Dilmune Dim Warm
+![Dilmune Dim Warm](screenshots/dim-warm.png)
+
+### Dilmune Dim Deep
+![Dilmune Dim Deep](screenshots/dim-deep.png)
+
+### Dilmune Dark
+![Dilmune Dark](screenshots/dark.png)
+
+### Dilmune Dark Soft
+![Dilmune Dark Soft](screenshots/dark-soft.png)
+
+### Dilmune Light
+![Dilmune Light](screenshots/light.png)
 
 ## Installation
 
