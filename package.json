@@ -1,0 +1,46 @@
+{
+  "name": "dilmune-theme",
+  "displayName": "Dilmune Theme",
+  "description": "A warm, terracotta-accented theme family inspired by the Dilmune Cloud design system. 10 themes: Light, Dim, and Dark with Muted, Soft, and High Contrast variants.",
+  "version": "1.0.0",
+  "publisher": "dilmune",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#c66a3b",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dilmune/dilmune-vscode-theme"
+  },
+  "categories": ["Themes"],
+  "keywords": ["theme", "dark", "light", "warm", "terracotta", "color-theme", "dilmune"],
+  "engines": { "vscode": "^1.80.0" },
+  "contributes": {
+    "themes": [
+      { "label": "Dilmune Light", "uiTheme": "vs", "path": "./themes/dilmune-light.json" },
+      { "label": "Dilmune Light Muted", "uiTheme": "vs", "path": "./themes/dilmune-light-muted.json" },
+      { "label": "Dilmune Light High Contrast", "uiTheme": "hc-light", "path": "./themes/dilmune-light-high-contrast.json" },
+      { "label": "Dilmune Dim", "uiTheme": "vs", "path": "./themes/dilmune-dim.json" },
+      { "label": "Dilmune Dim Muted", "uiTheme": "vs", "path": "./themes/dilmune-dim-muted.json" },
+      { "label": "Dilmune Dim High Contrast", "uiTheme": "hc-light", "path": "./themes/dilmune-dim-high-contrast.json" },
+      { "label": "Dilmune Dark", "uiTheme": "vs-dark", "path": "./themes/dilmune-dark.json" },
+      { "label": "Dilmune Dark Soft", "uiTheme": "vs-dark", "path": "./themes/dilmune-dark-soft.json" },
+      { "label": "Dilmune Dark Muted", "uiTheme": "vs-dark", "path": "./themes/dilmune-dark-muted.json" },
+      { "label": "Dilmune Dark High Contrast", "uiTheme": "hc-black", "path": "./themes/dilmune-dark-high-contrast.json" }
+    ]
+  },
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "dev": "tsx watch scripts/build.ts",
+    "package": "npm run build && vsce package",
+    "publish": "npm run build && vsce publish"
+  },
+  "devDependencies": {
+    "culori": "^4.0.0",
+    "tsx": "^4.0.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.5.0"
+  }
+}
