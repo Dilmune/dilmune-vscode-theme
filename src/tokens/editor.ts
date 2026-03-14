@@ -2,22 +2,24 @@ import type { BaseColors, Mode } from '../types'
 import { adjustLightness, withOpacity } from '../colors/variants'
 
 export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string, string> {
-  const isLight = mode === 'light' || mode === 'dim'
+  const isLight = mode === 'light'
   const selectionOpacity = isLight ? 0.15 : 0.20
   const activityBarBg = adjustLightness(colors.sidebar, isLight ? -0.02 : -0.02)
   const statusBarBg = adjustLightness(colors.sidebar, isLight ? -0.02 : -0.02)
+  const elevated = colors.card
+  const breadcrumbFg = adjustLightness(colors.mutedForeground, isLight ? -0.03 : 0.06)
 
   return {
-    // Backgrounds
+    // ── Backgrounds ──────────────────────────────────────────────
     'editor.background': colors.background,
     'sideBar.background': colors.sidebar,
     'activityBar.background': activityBarBg,
-    'panel.background': colors.card,
-    'editorWidget.background': colors.card,
-    'dropdown.background': colors.card,
+    'panel.background': elevated,
+    'editorWidget.background': elevated,
+    'dropdown.background': elevated,
     'input.background': colors.background,
     'tab.inactiveBackground': colors.background,
-    'tab.activeBackground': colors.card,
+    'tab.activeBackground': elevated,
     'titleBar.activeBackground': colors.sidebar,
     'titleBar.inactiveBackground': colors.sidebar,
     'statusBar.background': statusBarBg,
@@ -27,22 +29,22 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'breadcrumb.background': colors.background,
     'terminal.background': colors.background,
     'editorGutter.background': colors.background,
-    'peekViewEditor.background': colors.card,
+    'peekViewEditor.background': elevated,
     'peekViewResult.background': colors.sidebar,
-    'quickInput.background': colors.card,
-    'notifications.background': colors.card,
-    'editorHoverWidget.background': colors.card,
-    'debugToolBar.background': colors.card,
+    'quickInput.background': elevated,
+    'notifications.background': elevated,
+    'editorHoverWidget.background': elevated,
+    'debugToolBar.background': elevated,
 
-    // Foregrounds
+    // ── Foregrounds ──────────────────────────────────────────────
     'foreground': colors.foreground,
     'editor.foreground': colors.foreground,
     'sideBar.foreground': adjustLightness(colors.foreground, isLight ? 0.08 : -0.05),
     'activityBar.foreground': colors.foreground,
     'activityBar.inactiveForeground': colors.mutedForeground,
-    'editorLineNumber.foreground': colors.mutedForeground,
+    'editorLineNumber.foreground': adjustLightness(colors.mutedForeground, isLight ? 0 : 0.03),
     'editorLineNumber.activeForeground': colors.foreground,
-    'breadcrumb.foreground': colors.mutedForeground,
+    'breadcrumb.foreground': breadcrumbFg,
     'breadcrumb.focusForeground': colors.foreground,
     'breadcrumb.activeSelectionForeground': colors.foreground,
     'tab.inactiveForeground': colors.mutedForeground,
@@ -61,7 +63,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'editorHoverWidget.foreground': colors.foreground,
     'debugToolBar.foreground': colors.foreground,
 
-    // Accents (terracotta)
+    // ── Accents (terracotta) ─────────────────────────────────────
     'focusBorder': colors.primary,
     'activityBarBadge.background': colors.primary,
     'activityBarBadge.foreground': colors.primaryForeground,
@@ -87,7 +89,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'peekView.border': colors.primary,
     'editorOverviewRuler.findMatchForeground': withOpacity(colors.primary, 0.5),
 
-    // Borders
+    // ── Borders ──────────────────────────────────────────────────
     'editorGroup.border': colors.border,
     'sideBar.border': colors.sidebarBorder,
     'panel.border': colors.border,
@@ -101,7 +103,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'quickInput.border': colors.border,
     'editorHoverWidget.border': colors.border,
 
-    // Status colors
+    // ── Status colors ────────────────────────────────────────────
     'errorForeground': colors.destructive,
     'editorError.foreground': colors.destructive,
     'editorWarning.foreground': colors.warning,
@@ -119,7 +121,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'gitDecoration.conflictingResourceForeground': colors.warning,
     'gitDecoration.ignoredResourceForeground': colors.mutedForeground,
 
-    // Selection & highlights
+    // ── Selection & highlights ───────────────────────────────────
     'editor.selectionBackground': withOpacity(colors.primary, selectionOpacity),
     'editor.inactiveSelectionBackground': withOpacity(colors.primary, selectionOpacity * 0.6),
     'editor.selectionHighlightBackground': withOpacity(colors.primary, 0.08),
@@ -131,28 +133,146 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'editor.lineHighlightBackground': withOpacity(colors.foreground, 0.04),
     'editor.rangeHighlightBackground': withOpacity(colors.primary, 0.06),
 
-    // Diff
+    // ── Sticky scroll ────────────────────────────────────────────
+    'editorStickyScroll.background': colors.background,
+    'editorStickyScrollHover.background': withOpacity(colors.foreground, 0.04),
+
+    // ── Inlay hints ──────────────────────────────────────────────
+    'editorInlayHint.background': withOpacity(colors.mutedForeground, 0.10),
+    'editorInlayHint.foreground': colors.mutedForeground,
+    'editorInlayHint.typeForeground': adjustLightness(colors.mutedForeground, isLight ? -0.05 : 0.05),
+    'editorInlayHint.parameterForeground': adjustLightness(colors.mutedForeground, isLight ? -0.05 : 0.05),
+
+    // ── Code lens ────────────────────────────────────────────────
+    'editorCodeLens.foreground': colors.mutedForeground,
+
+    // ── Ghost text (AI suggestions) ──────────────────────────────
+    'editorGhostText.foreground': withOpacity(colors.mutedForeground, 0.6),
+
+    // ── Editor gutter ────────────────────────────────────────────
+    'editorGutter.addedBackground': colors.success,
+    'editorGutter.modifiedBackground': colors.info,
+    'editorGutter.deletedBackground': colors.destructive,
+    'editorGutter.foldingControlForeground': colors.mutedForeground,
+
+    // ── Suggest widget (autocomplete) ────────────────────────────
+    'editorSuggestWidget.background': elevated,
+    'editorSuggestWidget.border': colors.border,
+    'editorSuggestWidget.foreground': colors.foreground,
+    'editorSuggestWidget.highlightForeground': colors.primary,
+    'editorSuggestWidget.selectedBackground': withOpacity(colors.primary, 0.15),
+    'editorSuggestWidget.selectedForeground': colors.foreground,
+    'editorSuggestWidget.focusHighlightForeground': colors.primary,
+
+    // ── Peek view details ────────────────────────────────────────
+    'peekViewEditor.matchHighlightBackground': withOpacity(colors.warning, 0.25),
+    'peekViewResult.matchHighlightBackground': withOpacity(colors.warning, 0.20),
+    'peekViewResult.lineForeground': colors.mutedForeground,
+    'peekViewResult.fileForeground': colors.foreground,
+
+    // ── Input validation ─────────────────────────────────────────
+    'inputValidation.errorBackground': withOpacity(colors.destructive, 0.15),
+    'inputValidation.errorBorder': colors.destructive,
+    'inputValidation.warningBackground': withOpacity(colors.warning, 0.15),
+    'inputValidation.warningBorder': colors.warning,
+    'inputValidation.infoBackground': withOpacity(colors.info, 0.15),
+    'inputValidation.infoBorder': colors.info,
+
+    // ── Editor overview ruler (right gutter) ─────────────────────
+    'editorOverviewRuler.errorForeground': colors.destructive,
+    'editorOverviewRuler.warningForeground': colors.warning,
+    'editorOverviewRuler.infoForeground': colors.info,
+    'editorOverviewRuler.bracketMatchForeground': withOpacity(colors.primary, 0.6),
+    'editorOverviewRuler.modifiedForeground': colors.info,
+    'editorOverviewRuler.addedForeground': colors.success,
+    'editorOverviewRuler.deletedForeground': colors.destructive,
+
+    // ── Keybinding label ─────────────────────────────────────────
+    'keybindingLabel.background': withOpacity(colors.foreground, 0.06),
+    'keybindingLabel.foreground': colors.foreground,
+    'keybindingLabel.border': withOpacity(colors.foreground, 0.12),
+    'keybindingLabel.bottomBorder': withOpacity(colors.foreground, 0.18),
+
+    // ── Tab modified indicator ────────────────────────────────────
+    'tab.lastPinnedBorder': colors.border,
+
+    // ── Panel title ──────────────────────────────────────────────
+    'panelTitle.activeBorder': colors.primary,
+    'panelTitle.activeForeground': colors.foreground,
+    'panelTitle.inactiveForeground': colors.mutedForeground,
+
+    // ── Tree indent guides ───────────────────────────────────────
+    'tree.indentGuidesStroke': withOpacity(colors.border, 0.7),
+    'tree.tableColumnsBorder': withOpacity(colors.border, 0.5),
+
+    // ── Welcome page ─────────────────────────────────────────────
+    'welcomePage.tileBackground': elevated,
+    'welcomePage.tileBorder': colors.border,
+    'welcomePage.progress.foreground': colors.primary,
+
+    // ── Settings editor ──────────────────────────────────────────
+    'settings.headerForeground': colors.foreground,
+    'settings.modifiedItemIndicator': colors.primary,
+    'settings.focusedRowBackground': withOpacity(colors.primary, 0.06),
+    'settings.rowHoverBackground': withOpacity(colors.foreground, 0.03),
+
+    // ── Notebook (Jupyter) ───────────────────────────────────────
+    'notebook.cellBorderColor': colors.border,
+    'notebook.focusedCellBorder': colors.primary,
+
+    // ── Extension button ─────────────────────────────────────────
+    'extensionButton.prominentBackground': colors.primary,
+    'extensionButton.prominentForeground': colors.primaryForeground,
+    'extensionButton.prominentHoverBackground': adjustLightness(colors.primary, isLight ? -0.03 : 0.03),
+
+    // ── Toolbar ──────────────────────────────────────────────────
+    'toolbar.hoverBackground': withOpacity(colors.foreground, 0.08),
+
+    // ── Menu ─────────────────────────────────────────────────────
+    'menu.background': elevated,
+    'menu.foreground': colors.foreground,
+    'menu.selectionBackground': withOpacity(colors.primary, 0.15),
+    'menu.selectionForeground': colors.foreground,
+    'menu.separatorBackground': colors.border,
+    'menu.border': colors.border,
+
+    // ── Command center ───────────────────────────────────────────
+    'commandCenter.foreground': colors.mutedForeground,
+    'commandCenter.background': colors.background,
+    'commandCenter.border': colors.border,
+    'commandCenter.activeBackground': withOpacity(colors.primary, 0.08),
+    'commandCenter.activeForeground': colors.foreground,
+
+    // ── Banner ───────────────────────────────────────────────────
+    'banner.background': withOpacity(colors.primary, 0.15),
+    'banner.foreground': colors.foreground,
+
+    // ── Lightbulb ────────────────────────────────────────────────
+    'editorLightBulb.foreground': colors.warning,
+    'editorLightBulbAutoFix.foreground': colors.primary,
+
+    // ── Diff ─────────────────────────────────────────────────────
     'diffEditor.insertedTextBackground': withOpacity(colors.success, 0.12),
     'diffEditor.removedTextBackground': withOpacity(colors.destructive, 0.12),
     'diffEditor.insertedLineBackground': withOpacity(colors.success, 0.08),
     'diffEditor.removedLineBackground': withOpacity(colors.destructive, 0.08),
 
-    // Merge conflict
+    // ── Merge conflict ───────────────────────────────────────────
     'merge.currentHeaderBackground': withOpacity(colors.success, 0.25),
     'merge.incomingHeaderBackground': withOpacity(colors.info, 0.25),
 
-    // Minimap
+    // ── Minimap ──────────────────────────────────────────────────
     'minimap.findMatchHighlight': withOpacity(colors.warning, 0.5),
     'minimap.selectionHighlight': withOpacity(colors.primary, 0.3),
     'minimap.errorHighlight': colors.destructive,
     'minimap.warningHighlight': colors.warning,
 
-    // Scrollbar
+    // ── Scrollbar ────────────────────────────────────────────────
     'scrollbarSlider.background': withOpacity(colors.mutedForeground, 0.2),
     'scrollbarSlider.hoverBackground': withOpacity(colors.mutedForeground, 0.35),
     'scrollbarSlider.activeBackground': withOpacity(colors.mutedForeground, 0.5),
 
-    // Bracket pair colorization
+    // ── Bracket pair colorization ────────────────────────────────
     'editorBracketHighlight.foreground1': colors.primary,
     'editorBracketHighlight.foreground2': colors.info,
     'editorBracketHighlight.foreground3': colors.warning,
@@ -162,17 +282,17 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     'editorBracketMatch.background': withOpacity(colors.primary, 0.15),
     'editorBracketMatch.border': withOpacity(colors.primary, 0.5),
 
-    // Indent guides
+    // ── Indent guides ────────────────────────────────────────────
     'editorIndentGuide.background': withOpacity(colors.border, 0.5),
     'editorIndentGuide.activeBackground': colors.border,
 
-    // Ruler
+    // ── Ruler ────────────────────────────────────────────────────
     'editorRuler.foreground': withOpacity(colors.border, 0.5),
 
-    // Whitespace
+    // ── Whitespace ───────────────────────────────────────────────
     'editorWhitespace.foreground': withOpacity(colors.mutedForeground, 0.25),
 
-    // Terminal ANSI colors
+    // ── Terminal ANSI colors ─────────────────────────────────────
     'terminal.ansiBlack': isLight ? colors.foreground : colors.background,
     'terminal.ansiRed': colors.destructive,
     'terminal.ansiGreen': colors.success,
