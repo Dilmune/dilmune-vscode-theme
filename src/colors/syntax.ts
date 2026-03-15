@@ -44,9 +44,9 @@ const lightSyntax: SyntaxColors = {
   keyword: hex(0.48, 0.22, 28),
   string: hex(0.42, 0.14, 140),
   function: hex(0.40, 0.14, 180),
-  type: hex(0.48, 0.14, 55),
+  type: hex(0.48, 0.12, 62),               // pushed to H62 (was 55 → generated H46)
   variable: hex(0.25, 0.01, 260),
-  constant: hex(0.46, 0.18, 70),
+  constant: hex(0.46, 0.18, 75),            // nudged to H75 for more separation from type
   comment: hex(0.58, 0.015, 55),
   operator: hex(0.42, 0.01, 60),
   tag: hex(0.46, 0.20, 28),
@@ -56,8 +56,8 @@ const lightSyntax: SyntaxColors = {
   decorator: hex(0.46, 0.10, 50),
   namespace: hex(0.40, 0.12, 160),
   terracotta: hex(0.48, 0.22, 28),
-  sandstone: hex(0.48, 0.14, 55),
-  amber: hex(0.46, 0.18, 70),
+  sandstone: hex(0.48, 0.12, 62),
+  amber: hex(0.46, 0.18, 75),
   verdigris: hex(0.40, 0.14, 180),
   sage: hex(0.42, 0.14, 140),
   clay: hex(0.48, 0.14, 350),
@@ -65,16 +65,16 @@ const lightSyntax: SyntaxColors = {
   docComment: hex(0.50, 0.018, 55),
 }
 
-// Dim: dark-on-parchment (bg L=0.82) — like light but warmer, slightly darker syntax
+// Dim: dark-on-parchment (bg L=0.82) — portal dim feel
 const dimSyntax: SyntaxColors = {
   keyword: hex(0.46, 0.22, 28),
   string: hex(0.40, 0.14, 140),
   function: hex(0.38, 0.14, 180),
-  type: hex(0.46, 0.14, 55),
+  type: hex(0.46, 0.12, 62),               // pushed to H62 (was 55)
   variable: hex(0.24, 0.01, 260),
-  constant: hex(0.44, 0.18, 70),
-  comment: hex(0.56, 0.015, 55),              // gap 26 from bg
-  operator: hex(0.50, 0.012, 60),              // gap 32 from bg
+  constant: hex(0.44, 0.18, 75),            // H75 for separation from type
+  comment: hex(0.52, 0.015, 55),            // gap 30 from bg (was 26)
+  operator: hex(0.50, 0.012, 60),
   tag: hex(0.44, 0.20, 28),
   attribute: hex(0.44, 0.14, 80),
   cssProperty: hex(0.38, 0.14, 180),
@@ -82,13 +82,13 @@ const dimSyntax: SyntaxColors = {
   decorator: hex(0.44, 0.10, 50),
   namespace: hex(0.38, 0.12, 160),
   terracotta: hex(0.46, 0.22, 28),
-  sandstone: hex(0.46, 0.14, 55),
-  amber: hex(0.44, 0.18, 70),
+  sandstone: hex(0.46, 0.12, 62),
+  amber: hex(0.44, 0.18, 75),
   verdigris: hex(0.38, 0.14, 180),
   sage: hex(0.40, 0.14, 140),
   clay: hex(0.46, 0.14, 350),
   fossil: hex(0.44, 0.10, 50),
-  docComment: hex(0.50, 0.018, 55),
+  docComment: hex(0.48, 0.018, 55),
 }
 
 // Dusk: light-on-chocolate (bg L=0.40) — comments/operators MUST be visible

@@ -31,7 +31,7 @@ export const baseColors: Record<Mode, BaseColors> = {
     primaryForeground: palette.parchment[50],
     border: hex(0.75, 0.025, 76),                 // portal dim border pattern
     mutedForeground: hex(0.50, 0.015, 50),        // portal dim muted pattern
-    sidebar: hex(0.78, 0.028, 76),                // portal dim sidebar exactly (same chroma+hue)
+    sidebar: hex(0.74, 0.030, 76),                // more distinct from editor (gap ~8)
     sidebarBorder: hex(0.73, 0.025, 76),
     success: hex(0.52, 0.16, 145),
     warning: hex(0.62, 0.16, 75),

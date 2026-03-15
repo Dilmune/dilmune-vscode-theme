@@ -4,25 +4,25 @@
   "semanticHighlighting": true,
   "colors": {
     "editor.background": "#cec2b0",
-    "sideBar.background": "#c2b5a4",
-    "activityBar.background": "#bcaf9e",
+    "sideBar.background": "#b6a996",
+    "activityBar.background": "#b0a390",
     "panel.background": "#c1b6a4",
     "editorWidget.background": "#c1b6a4",
     "dropdown.background": "#c1b6a4",
     "input.background": "#cec2b0",
     "tab.inactiveBackground": "#cec2b0",
     "tab.activeBackground": "#c1b6a4",
-    "titleBar.activeBackground": "#c2b5a4",
-    "titleBar.inactiveBackground": "#c2b5a4",
-    "statusBar.background": "#bcaf9e",
-    "statusBar.noFolderBackground": "#bcaf9e",
+    "titleBar.activeBackground": "#b6a996",
+    "titleBar.inactiveBackground": "#b6a996",
+    "statusBar.background": "#b0a390",
+    "statusBar.noFolderBackground": "#b0a390",
     "statusBar.debuggingBackground": "#d22719",
     "editorGroupHeader.tabsBackground": "#cec2b0",
     "breadcrumb.background": "#cec2b0",
     "terminal.background": "#cec2b0",
     "editorGutter.background": "#cec2b0",
     "peekViewEditor.background": "#c1b6a4",
-    "peekViewResult.background": "#c2b5a4",
+    "peekViewResult.background": "#b6a996",
     "quickInput.background": "#c1b6a4",
     "notifications.background": "#c1b6a4",
     "editorHoverWidget.background": "#c1b6a4",
@@ -284,10 +284,10 @@
     "debugTokenExpression.name": "#d22719",
     "debugTokenExpression.value": "#211914",
     "debugTokenExpression.string": "#005a00",
-    "debugTokenExpression.boolean": "#942b00",
-    "debugTokenExpression.number": "#942b00",
+    "debugTokenExpression.boolean": "#8f3200",
+    "debugTokenExpression.number": "#8f3200",
     "debugTokenExpression.error": "#d50000",
-    "debugTokenExpression.type": "#973300",
+    "debugTokenExpression.type": "#8c4000",
     "debugConsole.infoForeground": "#0070ba",
     "debugConsole.warningForeground": "#c47000",
     "debugConsole.errorForeground": "#d50000",
@@ -388,7 +388,7 @@
         "entity.other.inherited-class"
       ],
       "settings": {
-        "foreground": "#973300"
+        "foreground": "#8c4000"
       }
     },
     {
@@ -399,7 +399,7 @@
         "support.type.builtin.go"
       ],
       "settings": {
-        "foreground": "#973300"
+        "foreground": "#8c4000"
       }
     },
     {
@@ -434,7 +434,7 @@
         "constant.other"
       ],
       "settings": {
-        "foreground": "#942b00"
+        "foreground": "#8f3200"
       }
     },
     {
@@ -446,7 +446,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#7d726b",
+        "foreground": "#716760",
         "fontStyle": "italic"
       }
     },
@@ -459,7 +459,7 @@
         "string.quoted.docstring.multi.python"
       ],
       "settings": {
-        "foreground": "#6d6159",
+        "foreground": "#675b53",
         "fontStyle": "italic"
       }
     },
@@ -497,7 +497,7 @@
         "support.class.component.jsx"
       ],
       "settings": {
-        "foreground": "#973300"
+        "foreground": "#8c4000"
       }
     },
     {
@@ -527,7 +527,7 @@
         "support.type.custom-property.css"
       ],
       "settings": {
-        "foreground": "#942b00"
+        "foreground": "#8f3200"
       }
     },
     {
@@ -537,7 +537,7 @@
         "support.constant.color.css"
       ],
       "settings": {
-        "foreground": "#942b00"
+        "foreground": "#8f3200"
       }
     },
     {
@@ -546,7 +546,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#942b00"
+        "foreground": "#8f3200"
       }
     },
     {
@@ -636,7 +636,7 @@
         "support.class.promise"
       ],
       "settings": {
-        "foreground": "#973300",
+        "foreground": "#8c4000",
         "fontStyle": "italic"
       }
     },
@@ -655,7 +655,7 @@
         "source.go storage.type"
       ],
       "settings": {
-        "foreground": "#973300"
+        "foreground": "#8c4000"
       }
     },
     {
@@ -665,7 +665,7 @@
         "entity.name.type.ts"
       ],
       "settings": {
-        "foreground": "#973300"
+        "foreground": "#8c4000"
       }
     },
     {
@@ -712,7 +712,7 @@
         "constant.other.table-name.sql"
       ],
       "settings": {
-        "foreground": "#973300"
+        "foreground": "#8c4000"
       }
     },
     {
@@ -749,7 +749,7 @@
         "variable.other.alias.yaml"
       ],
       "settings": {
-        "foreground": "#942b00"
+        "foreground": "#8f3200"
       }
     },
     {
@@ -850,7 +850,7 @@
         "meta.type.parameters"
       ],
       "settings": {
-        "foreground": "#973300",
+        "foreground": "#8c4000",
         "fontStyle": "italic"
       }
     },
@@ -872,7 +872,7 @@
         "entity.name.type.interface"
       ],
       "settings": {
-        "foreground": "#973300",
+        "foreground": "#8c4000",
         "fontStyle": "italic"
       }
     },
@@ -942,22 +942,22 @@
     "function.declaration": "#005b44",
     "method": "#005a44",
     "variable": "#1c1f25",
-    "variable.readonly": "#942b00",
+    "variable.readonly": "#8f3200",
     "parameter": "#15181e",
     "property": "#1c1f25",
-    "type": "#973300",
-    "class": "#973300",
-    "interface": "#923914",
-    "enum": "#973300",
-    "enumMember": "#942b00",
+    "type": "#8c4000",
+    "class": "#8c4000",
+    "interface": "#884414",
+    "enum": "#8c4000",
+    "enumMember": "#8f3200",
     "namespace": "#005626",
     "decorator": "#833b02",
     "comment": {
-      "foreground": "#7d726b",
+      "foreground": "#716760",
       "fontStyle": "italic"
     },
     "string": "#005a00",
-    "number": "#942b00",
+    "number": "#8f3200",
     "keyword": "#bd0000",
     "operator": "#6a625c",
     "*.deprecated": {
@@ -990,7 +990,7 @@
       "fontStyle": "italic"
     },
     "class.defaultLibrary": {
-      "foreground": "#973300",
+      "foreground": "#8c4000",
       "fontStyle": "italic"
     },
     "method.defaultLibrary": {
@@ -1002,16 +1002,16 @@
       "fontStyle": "italic"
     },
     "class.abstract": {
-      "foreground": "#973300",
+      "foreground": "#8c4000",
       "fontStyle": "italic"
     },
     "method.abstract": {
       "foreground": "#005a44",
       "fontStyle": "italic"
     },
-    "property.readonly": "#942b00",
+    "property.readonly": "#8f3200",
     "*.documentation": {
-      "foreground": "#7d726b",
+      "foreground": "#716760",
       "fontStyle": "italic"
     }
   }
