@@ -42,6 +42,7 @@
     "vscode": "^1.80.0"
   },
   "contributes": {
+    "markdown.previewStyles": ["./markdown-preview.css"],
     "themes": [
       {
         "label": "Dilmune Light",

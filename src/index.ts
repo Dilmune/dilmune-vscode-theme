@@ -28,14 +28,15 @@ const themeConfigs: ThemeConfig[] = [
 export function buildTheme(config: ThemeConfig): ThemeOutput {
   const base = applyBaseVariant(baseColors[config.mode], config.variant)
   const syntax = applySyntaxVariant(syntaxColors[config.mode], config.variant)
+  const isDark = config.mode === 'dark' || config.mode === 'dusk'
 
   return {
     name: config.name,
     type: config.type,
     semanticHighlighting: true,
-    colors: buildEditorColors(base, config.mode),
+    colors: buildEditorColors(base, config.mode, syntax),
     tokenColors: buildTokenColors(syntax),
-    semanticTokenColors: buildSemanticTokenColors(syntax),
+    semanticTokenColors: buildSemanticTokenColors(syntax, isDark),
   }
 }
 

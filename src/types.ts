@@ -40,6 +40,14 @@ export interface SyntaxColors {
   regex: string
   decorator: string
   namespace: string
+  terracotta: string
+  sandstone: string
+  amber: string
+  verdigris: string
+  sage: string
+  clay: string
+  fossil: string
+  docComment: string
 }
 
 export interface ThemeOutput {

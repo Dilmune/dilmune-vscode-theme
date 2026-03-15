@@ -2,7 +2,8 @@ import type { SyntaxColors } from '../types'
 import { adjustLightness, adjustChroma } from '../colors/variants'
 
 export function buildSemanticTokenColors(
-  colors: SyntaxColors
+  colors: SyntaxColors,
+  isDark = false
 ): Record<string, string | { foreground: string; fontStyle?: string }> {
   return {
     function: colors.function,
@@ -25,7 +26,27 @@ export function buildSemanticTokenColors(
     keyword: colors.keyword,
     operator: colors.operator,
     '*.deprecated': { fontStyle: 'strikethrough' },
-    'variable.defaultLibrary': { foreground: colors.keyword, fontStyle: 'italic' },
     selfKeyword: { foreground: colors.keyword, fontStyle: 'italic' },
+
+    'function.async': { foreground: colors.verdigris, fontStyle: 'italic' },
+    'method.async': { foreground: colors.verdigris, fontStyle: 'italic' },
+
+    'method.static': { foreground: colors.verdigris, fontStyle: 'underline' },
+    'property.static': { foreground: colors.variable, fontStyle: 'underline' },
+
+    'variable.declaration': adjustLightness(colors.variable, isDark ? 0.03 : -0.03),
+    'parameter.declaration': adjustLightness(colors.variable, isDark ? 0.02 : -0.02),
+
+    'function.defaultLibrary': { foreground: colors.verdigris, fontStyle: 'italic' },
+    'class.defaultLibrary': { foreground: colors.sandstone, fontStyle: 'italic' },
+    'method.defaultLibrary': { foreground: colors.verdigris, fontStyle: 'italic' },
+    'variable.defaultLibrary': { foreground: colors.terracotta, fontStyle: 'italic' },
+
+    'class.abstract': { foreground: colors.sandstone, fontStyle: 'italic' },
+    'method.abstract': { foreground: colors.verdigris, fontStyle: 'italic' },
+
+    'property.readonly': colors.amber,
+
+    '*.documentation': { foreground: colors.comment, fontStyle: 'italic' },
   }
 }

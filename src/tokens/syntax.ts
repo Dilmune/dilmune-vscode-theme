@@ -22,6 +22,20 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       settings: { foreground: colors.string },
     },
     {
+      name: 'String interpolation',
+      scope: [
+        'punctuation.definition.template-expression.begin',
+        'punctuation.definition.template-expression.end',
+        'punctuation.definition.interpolation.begin',
+        'punctuation.definition.interpolation.end',
+        'punctuation.section.embedded.begin',
+        'punctuation.section.embedded.end',
+        'constant.character.format.placeholder',
+        'meta.template.expression',
+      ],
+      settings: { foreground: colors.terracotta },
+    },
+    {
       name: 'Functions',
       scope: ['entity.name.function', 'support.function', 'meta.function-call'],
       settings: { foreground: colors.function },
@@ -30,6 +44,24 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       name: 'Types and classes',
       scope: ['entity.name.type', 'entity.name.class', 'support.type', 'support.class', 'entity.other.inherited-class'],
       settings: { foreground: colors.type },
+    },
+    {
+      name: 'Built-in types',
+      scope: [
+        'support.type.primitive',
+        'support.type.builtin',
+        'support.type.builtin.go',
+      ],
+      settings: { foreground: colors.sandstone },
+    },
+    {
+      name: 'Built-in functions',
+      scope: [
+        'support.function.builtin',
+        'support.function.builtin.go',
+        'support.function.builtin.python',
+      ],
+      settings: { foreground: colors.verdigris, fontStyle: 'italic' },
     },
     {
       name: 'Variables',
@@ -45,6 +77,16 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       name: 'Comments',
       scope: ['comment', 'comment.line', 'comment.block', 'punctuation.definition.comment'],
       settings: { foreground: colors.comment, fontStyle: 'italic' },
+    },
+    {
+      name: 'Doc comments',
+      scope: [
+        'comment.block.documentation',
+        'comment.line.documentation',
+        'comment.block.documentation.phpdoc',
+        'string.quoted.docstring.multi.python',
+      ],
+      settings: { foreground: colors.docComment, fontStyle: 'italic' },
     },
     {
       name: 'Operators',
@@ -63,9 +105,14 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       settings: { foreground: colors.operator },
     },
     {
-      name: 'HTML/JSX tags',
-      scope: ['entity.name.tag', 'support.class.component'],
-      settings: { foreground: colors.tag },
+      name: 'HTML tags',
+      scope: ['entity.name.tag'],
+      settings: { foreground: colors.terracotta },
+    },
+    {
+      name: 'JSX/TSX component tags',
+      scope: ['support.class.component.tsx', 'support.class.component.jsx'],
+      settings: { foreground: colors.sandstone },
     },
     {
       name: 'Attributes',
@@ -76,6 +123,11 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       name: 'CSS properties',
       scope: ['support.type.property-name.css', 'support.type.property-name.scss'],
       settings: { foreground: colors.cssProperty },
+    },
+    {
+      name: 'CSS custom properties',
+      scope: ['variable.css', 'variable.other.custom-property.css', 'support.type.custom-property.css'],
+      settings: { foreground: colors.amber },
     },
     {
       name: 'CSS values',
@@ -98,9 +150,40 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       settings: { foreground: colors.decorator },
     },
     {
+      name: 'Preprocessor',
+      scope: [
+        'meta.preprocessor',
+        'keyword.control.directive',
+        'keyword.control.directive.include',
+        'keyword.control.directive.define',
+        'punctuation.definition.directive',
+      ],
+      settings: { foreground: colors.clay, fontStyle: 'italic' },
+    },
+    {
+      name: 'Rust macros',
+      scope: ['entity.name.function.macro.rust', 'support.macro.rust'],
+      settings: { foreground: colors.terracotta, fontStyle: 'bold' },
+    },
+    {
+      name: 'Rust/C++ attributes',
+      scope: ['meta.attribute.rust', 'meta.attribute.cpp'],
+      settings: { foreground: colors.fossil, fontStyle: 'italic' },
+    },
+    {
       name: 'Namespaces and modules',
       scope: ['entity.name.namespace', 'entity.name.module', 'entity.name.import'],
       settings: { foreground: colors.namespace },
+    },
+    {
+      name: 'Object properties',
+      scope: ['variable.other.property', 'variable.other.object.property', 'meta.object-literal.key'],
+      settings: { foreground: colors.attribute },
+    },
+    {
+      name: 'Support classes (console, Error, Promise)',
+      scope: ['support.class.console', 'support.class.error', 'support.class.promise'],
+      settings: { foreground: colors.sandstone, fontStyle: 'italic' },
     },
     // Go-specific
     {
@@ -115,11 +198,6 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
     },
     // TypeScript/TSX-specific
     {
-      name: 'TSX component tags',
-      scope: ['support.class.component.tsx', 'support.class.component.jsx'],
-      settings: { foreground: colors.tag },
-    },
-    {
       name: 'TypeScript types',
       scope: ['entity.name.type.tsx', 'entity.name.type.ts'],
       settings: { foreground: colors.type },
@@ -128,7 +206,7 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
     {
       name: 'Python builtins',
       scope: ['support.function.builtin.python'],
-      settings: { foreground: colors.function },
+      settings: { foreground: colors.verdigris, fontStyle: 'italic' },
     },
     // Rust-specific
     {
@@ -169,6 +247,11 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       scope: ['entity.name.tag.yaml'],
       settings: { foreground: colors.attribute },
     },
+    {
+      name: 'YAML anchors',
+      scope: ['entity.name.other.anchor.yaml', 'variable.other.alias.yaml'],
+      settings: { foreground: colors.amber },
+    },
     // Markdown
     {
       name: 'Markdown headings',
@@ -195,6 +278,21 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       scope: ['markup.underline.link'],
       settings: { foreground: colors.function },
     },
+    {
+      name: 'Markdown lists',
+      scope: ['markup.list', 'punctuation.definition.list'],
+      settings: { foreground: colors.terracotta },
+    },
+    {
+      name: 'Markdown quotes',
+      scope: ['markup.quote'],
+      settings: { foreground: colors.sage, fontStyle: 'italic' },
+    },
+    {
+      name: 'Markdown strikethrough',
+      scope: ['markup.strikethrough'],
+      settings: { fontStyle: 'strikethrough' },
+    },
     // Font style depth
     {
       name: 'This/self/super',
@@ -215,6 +313,37 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       name: 'Interface declarations',
       scope: ['entity.name.type.interface'],
       settings: { foreground: colors.type, fontStyle: 'italic' },
+    },
+    // Shell/Bash
+    {
+      name: 'Shell variables',
+      scope: ['variable.other.normal.shell', 'variable.other.special.shell', 'variable.other.positional.shell'],
+      settings: { foreground: colors.variable },
+    },
+    {
+      name: 'Shell commands',
+      scope: ['support.function.builtin.shell'],
+      settings: { foreground: colors.verdigris, fontStyle: 'italic' },
+    },
+    // TOML
+    {
+      name: 'TOML table headers',
+      scope: ['entity.other.attribute-name.table.toml', 'support.type.property-name.table.toml'],
+      settings: { foreground: colors.terracotta, fontStyle: 'bold' },
+    },
+    {
+      name: 'TOML keys',
+      scope: ['support.type.property-name.toml'],
+      settings: { foreground: colors.attribute },
+    },
+    // Punctuation
+    {
+      name: 'Punctuation brackets',
+      scope: [
+        'punctuation.definition.string.begin',
+        'punctuation.definition.string.end',
+      ],
+      settings: { foreground: colors.string },
     },
     // Deprecated
     {
