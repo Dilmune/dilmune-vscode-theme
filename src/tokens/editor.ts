@@ -267,8 +267,8 @@ export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string
     // ── Minimap ──────────────────────────────────────────────────
     'minimap.findMatchHighlight': withOpacity(colors.warning, 0.5),
     'minimap.selectionHighlight': withOpacity(colors.primary, 0.3),
-    'minimap.errorHighlight': colors.destructive,
-    'minimap.warningHighlight': colors.warning,
+    'minimap.errorHighlight': withOpacity(colors.destructive, 0.6),
+    'minimap.warningHighlight': withOpacity(colors.warning, 0.6),
 
     // ── Scrollbar ────────────────────────────────────────────────
     'scrollbarSlider.background': withOpacity(colors.mutedForeground, 0.2),

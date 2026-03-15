@@ -82,9 +82,10 @@ export function applyBaseVariant(colors: BaseColors, variant: 'default' | 'soft'
     case 'soft':
       return {
         ...colors,
-        background: adjustLightness(colors.background, 0.03),
-        sidebar: adjustLightness(colors.sidebar, 0.04),
-        card: adjustLightness(colors.card, 0.02),
+        background: adjustLightness(colors.background, 0.06),
+        sidebar: adjustLightness(colors.sidebar, 0.07),
+        card: adjustLightness(colors.card, 0.05),
+        border: adjustLightness(colors.border, 0.04),
       }
     case 'muted':
       return {
