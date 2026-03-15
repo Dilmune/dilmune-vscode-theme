@@ -18,30 +18,101 @@
     "type": "git",
     "url": "https://github.com/Dilmune/dilmune-vscode-theme"
   },
-  "categories": ["Themes"],
-  "keywords": [
-    "theme", "color-theme", "dark", "light", "dim",
-    "warm", "warm-dark", "terracotta", "earthy", "cozy",
-    "dilmune", "gruvbox-alternative", "eye-comfort",
-    "brown", "red"
+  "categories": [
+    "Themes"
   ],
-  "engines": { "vscode": "^1.80.0" },
+  "keywords": [
+    "theme",
+    "color-theme",
+    "dark",
+    "light",
+    "dim",
+    "warm",
+    "warm-dark",
+    "terracotta",
+    "earthy",
+    "cozy",
+    "dilmune",
+    "gruvbox-alternative",
+    "eye-comfort",
+    "brown",
+    "red"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
   "contributes": {
     "themes": [
-      { "label": "Dilmune Light", "uiTheme": "vs", "path": "./themes/dilmune-light.json" },
-      { "label": "Dilmune Light Muted", "uiTheme": "vs", "path": "./themes/dilmune-light-muted.json" },
-      { "label": "Dilmune Light High Contrast", "uiTheme": "hc-light", "path": "./themes/dilmune-light-high-contrast.json" },
-      { "label": "Dilmune Dim", "uiTheme": "vs-dark", "path": "./themes/dilmune-dim.json" },
-      { "label": "Dilmune Dim Muted", "uiTheme": "vs-dark", "path": "./themes/dilmune-dim-muted.json" },
-      { "label": "Dilmune Dim High Contrast", "uiTheme": "hc-black", "path": "./themes/dilmune-dim-high-contrast.json" },
-      { "label": "Dilmune Dim Warm", "uiTheme": "vs-dark", "path": "./themes/dilmune-dim-warm.json" },
-      { "label": "Dilmune Dim Warm Muted", "uiTheme": "vs-dark", "path": "./themes/dilmune-dim-warm-muted.json" },
-      { "label": "Dilmune Dim Deep", "uiTheme": "vs-dark", "path": "./themes/dilmune-dim-deep.json" },
-      { "label": "Dilmune Dim Deep Muted", "uiTheme": "vs-dark", "path": "./themes/dilmune-dim-deep-muted.json" },
-      { "label": "Dilmune Dark", "uiTheme": "vs-dark", "path": "./themes/dilmune-dark.json" },
-      { "label": "Dilmune Dark Soft", "uiTheme": "vs-dark", "path": "./themes/dilmune-dark-soft.json" },
-      { "label": "Dilmune Dark Muted", "uiTheme": "vs-dark", "path": "./themes/dilmune-dark-muted.json" },
-      { "label": "Dilmune Dark High Contrast", "uiTheme": "hc-black", "path": "./themes/dilmune-dark-high-contrast.json" }
+      {
+        "label": "Dilmune Light",
+        "uiTheme": "vs",
+        "path": "./themes/dilmune-light.json"
+      },
+      {
+        "label": "Dilmune Light Muted",
+        "uiTheme": "vs",
+        "path": "./themes/dilmune-light-muted.json"
+      },
+      {
+        "label": "Dilmune Light High Contrast",
+        "uiTheme": "hc-light",
+        "path": "./themes/dilmune-light-high-contrast.json"
+      },
+      {
+        "label": "Dilmune Dim",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dim.json"
+      },
+      {
+        "label": "Dilmune Dim Muted",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dim-muted.json"
+      },
+      {
+        "label": "Dilmune Dim High Contrast",
+        "uiTheme": "hc-black",
+        "path": "./themes/dilmune-dim-high-contrast.json"
+      },
+      {
+        "label": "Dilmune Dim Warm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dim-warm.json"
+      },
+      {
+        "label": "Dilmune Dim Warm Muted",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dim-warm-muted.json"
+      },
+      {
+        "label": "Dilmune Dim Deep",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dim-deep.json"
+      },
+      {
+        "label": "Dilmune Dim Deep Muted",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dim-deep-muted.json"
+      },
+      {
+        "label": "Dilmune Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dark.json"
+      },
+      {
+        "label": "Dilmune Dark Soft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dark-soft.json"
+      },
+      {
+        "label": "Dilmune Dark Muted",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dark-muted.json"
+      },
+      {
+        "label": "Dilmune Dark High Contrast",
+        "uiTheme": "hc-black",
+        "path": "./themes/dilmune-dark-high-contrast.json"
+      }
     ]
   },
   "scripts": {
@@ -51,9 +122,10 @@
     "publish": "npm run build && vsce publish"
   },
   "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@vscode/vsce": "^3.0.0",
     "culori": "^4.0.0",
     "tsx": "^4.0.0",
-    "@vscode/vsce": "^3.0.0",
     "typescript": "^5.5.0"
   }
 }

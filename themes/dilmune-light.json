@@ -271,7 +271,7 @@
         "string.template"
       ],
       "settings": {
-        "foreground": "#005f0e"
+        "foreground": "#325a00"
       }
     },
     {
@@ -581,7 +581,7 @@
         "markup.fenced_code.block"
       ],
       "settings": {
-        "foreground": "#005f0e"
+        "foreground": "#325a00"
       }
     },
     {
@@ -667,7 +667,7 @@
       "foreground": "#6c727b",
       "fontStyle": "italic"
     },
-    "string": "#005f0e",
+    "string": "#325a00",
     "number": "#933a00",
     "keyword": "#ba0000",
     "operator": "#4a4d53",

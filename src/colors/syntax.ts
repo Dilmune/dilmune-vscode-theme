@@ -15,28 +15,28 @@ function hex(l: number, c: number, h: number): string {
 //   tags:       hue 28  (brand, same as keywords in markup)
 //   attributes: hue 80  (golden, pairs with tags)
 
-// Dark: vivid on deep blue-black
+// Dark: vivid on deep blue-black (bg L=0.18 — needs BRIGHTER syntax than dim)
 const darkSyntax: SyntaxColors = {
-  keyword: hex(0.68, 0.22, 28),
-  string: hex(0.74, 0.14, 90),
-  function: hex(0.70, 0.14, 180),
-  type: hex(0.74, 0.14, 55),
-  variable: hex(0.82, 0.01, 75),
-  constant: hex(0.72, 0.18, 70),
-  comment: hex(0.55, 0.01, 260),          // brighter (was 0.50)
-  operator: hex(0.65, 0.01, 260),
-  tag: hex(0.65, 0.20, 28),
-  attribute: hex(0.72, 0.12, 80),
-  cssProperty: hex(0.70, 0.14, 180),
-  regex: hex(0.68, 0.14, 350),
-  decorator: hex(0.60, 0.08, 50),
-  namespace: hex(0.62, 0.10, 160),
+  keyword: hex(0.75, 0.22, 28),            // brighter than dim (was 0.68)
+  string: hex(0.78, 0.15, 90),             // brighter (was 0.74)
+  function: hex(0.76, 0.14, 180),          // brighter (was 0.70)
+  type: hex(0.78, 0.14, 55),              // brighter (was 0.74)
+  variable: hex(0.86, 0.01, 75),           // brighter (was 0.82)
+  constant: hex(0.76, 0.18, 70),           // brighter (was 0.72)
+  comment: hex(0.58, 0.012, 260),          // brighter (was 0.55)
+  operator: hex(0.70, 0.012, 260),         // brighter (was 0.65)
+  tag: hex(0.72, 0.20, 28),               // brighter (was 0.65)
+  attribute: hex(0.76, 0.12, 80),          // brighter (was 0.72)
+  cssProperty: hex(0.76, 0.14, 180),       // brighter (was 0.70)
+  regex: hex(0.72, 0.14, 350),             // brighter (was 0.68)
+  decorator: hex(0.65, 0.08, 50),          // brighter (was 0.60)
+  namespace: hex(0.68, 0.10, 160),         // brighter (was 0.62)
 }
 
 // Light: bold dark-on-cream
 const lightSyntax: SyntaxColors = {
   keyword: hex(0.48, 0.22, 28),
-  string: hex(0.42, 0.14, 145),           // green for light mode readability
+  string: hex(0.42, 0.14, 130),           // warm green for light mode readability
   function: hex(0.40, 0.14, 180),
   type: hex(0.48, 0.14, 55),
   variable: hex(0.25, 0.01, 260),
