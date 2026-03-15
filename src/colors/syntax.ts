@@ -65,48 +65,50 @@ const lightSyntax: SyntaxColors = {
   docComment: hex(0.50, 0.018, 55),
 }
 
+// Dim: dark-on-parchment (bg L=0.82) — like light but warmer, slightly darker syntax
 const dimSyntax: SyntaxColors = {
-  keyword: hex(0.42, 0.20, 28),
-  string: hex(0.38, 0.14, 140),
-  function: hex(0.36, 0.14, 180),
-  type: hex(0.42, 0.14, 55),
-  variable: hex(0.22, 0.01, 260),
-  constant: hex(0.40, 0.16, 70),
-  comment: hex(0.53, 0.015, 55),
-  operator: hex(0.40, 0.015, 60),
-  tag: hex(0.40, 0.18, 28),
-  attribute: hex(0.40, 0.12, 80),
-  cssProperty: hex(0.36, 0.12, 180),
-  regex: hex(0.42, 0.14, 350),
-  decorator: hex(0.42, 0.08, 50),
-  namespace: hex(0.36, 0.10, 160),
-  terracotta: hex(0.42, 0.20, 28),
-  sandstone: hex(0.42, 0.14, 55),
-  amber: hex(0.40, 0.16, 70),
-  verdigris: hex(0.36, 0.14, 180),
-  sage: hex(0.38, 0.14, 140),
-  clay: hex(0.42, 0.14, 350),
-  fossil: hex(0.42, 0.08, 50),
-  docComment: hex(0.46, 0.018, 55),
+  keyword: hex(0.46, 0.22, 28),
+  string: hex(0.40, 0.14, 140),
+  function: hex(0.38, 0.14, 180),
+  type: hex(0.46, 0.14, 55),
+  variable: hex(0.24, 0.01, 260),
+  constant: hex(0.44, 0.18, 70),
+  comment: hex(0.56, 0.015, 55),              // gap 26 from bg
+  operator: hex(0.50, 0.012, 60),              // gap 32 from bg
+  tag: hex(0.44, 0.20, 28),
+  attribute: hex(0.44, 0.14, 80),
+  cssProperty: hex(0.38, 0.14, 180),
+  regex: hex(0.46, 0.14, 350),
+  decorator: hex(0.44, 0.10, 50),
+  namespace: hex(0.38, 0.12, 160),
+  terracotta: hex(0.46, 0.22, 28),
+  sandstone: hex(0.46, 0.14, 55),
+  amber: hex(0.44, 0.18, 70),
+  verdigris: hex(0.38, 0.14, 180),
+  sage: hex(0.40, 0.14, 140),
+  clay: hex(0.46, 0.14, 350),
+  fossil: hex(0.44, 0.10, 50),
+  docComment: hex(0.50, 0.018, 55),
 }
 
+// Dusk: light-on-chocolate (bg L=0.40) — comments/operators MUST be visible
 const duskSyntax: SyntaxColors = {
-  keyword: hex(0.72, 0.22, 28),
-  string: hex(0.75, 0.14, 140),
-  function: hex(0.72, 0.12, 180),
-  type: hex(0.75, 0.14, 55),
-  variable: hex(0.82, 0.015, 60),
-  constant: hex(0.74, 0.16, 70),
-  comment: hex(0.56, 0.018, 55),
-  operator: hex(0.66, 0.015, 60),
-  tag: hex(0.70, 0.20, 28),
-  attribute: hex(0.74, 0.12, 80),
-  cssProperty: hex(0.72, 0.12, 180),
-  regex: hex(0.70, 0.14, 350),
-  decorator: hex(0.66, 0.08, 50),
-  namespace: hex(0.66, 0.10, 150),
-  terracotta: hex(0.72, 0.22, 28),
-  sandstone: hex(0.75, 0.14, 55),
+  keyword: hex(0.74, 0.22, 28),              // gap 34
+  string: hex(0.76, 0.14, 140),              // gap 36
+  function: hex(0.74, 0.12, 180),            // gap 34
+  type: hex(0.76, 0.14, 55),                // gap 36
+  variable: hex(0.84, 0.015, 60),            // gap 44
+  constant: hex(0.76, 0.16, 70),             // gap 36
+  comment: hex(0.62, 0.018, 55),             // gap 22 (was 16!)
+  operator: hex(0.70, 0.015, 60),            // gap 30 (was 26)
+  tag: hex(0.72, 0.20, 28),                 // gap 32
+  attribute: hex(0.76, 0.12, 80),            // gap 36
+  cssProperty: hex(0.74, 0.12, 180),         // gap 34
+  regex: hex(0.72, 0.14, 350),               // gap 32
+  decorator: hex(0.68, 0.08, 50),            // gap 28
+  namespace: hex(0.68, 0.10, 150),           // gap 28
+  terracotta: hex(0.74, 0.22, 28),
+  sandstone: hex(0.76, 0.14, 55),
   amber: hex(0.74, 0.16, 70),
   verdigris: hex(0.72, 0.12, 180),
   sage: hex(0.75, 0.14, 140),

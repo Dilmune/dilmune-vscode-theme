@@ -22,35 +22,37 @@ export const baseColors: Record<Mode, BaseColors> = {
     destructive: hex(0.55, 0.24, 27),
     info: hex(0.58, 0.15, 240),
   },
+  // Dim: warm parchment — like aged paper, NOT muddy brown
   dim: {
-    background: palette.parchment[400],
-    foreground: hex(0.20, 0.01, 260),
-    card: hex(0.66, 0.04, 65),
+    background: hex(0.82, 0.02, 75),             // lifted from 0.70 — clean warm parchment
+    foreground: hex(0.18, 0.01, 260),
+    card: hex(0.85, 0.016, 75),
     primary: hex(0.55, 0.19, 28),
     primaryForeground: palette.parchment[50],
-    border: hex(0.62, 0.035, 65),
-    mutedForeground: hex(0.48, 0.015, 60),
-    sidebar: hex(0.65, 0.04, 65),
-    sidebarBorder: hex(0.60, 0.035, 65),
-    success: hex(0.50, 0.16, 145),
-    warning: hex(0.60, 0.16, 75),
+    border: hex(0.76, 0.018, 75),
+    mutedForeground: hex(0.50, 0.012, 60),        // enough gap from bg
+    sidebar: hex(0.78, 0.022, 75),                // distinct from editor
+    sidebarBorder: hex(0.74, 0.018, 75),
+    success: hex(0.52, 0.16, 145),
+    warning: hex(0.62, 0.16, 75),
     destructive: hex(0.52, 0.22, 27),
-    info: hex(0.50, 0.14, 240),
+    info: hex(0.52, 0.14, 240),
   },
+  // Dusk: warm chocolate — sidebar icons must be visible
   dusk: {
     background: palette.parchment[700],
-    foreground: hex(0.90, 0.015, 70),
-    card: hex(0.45, 0.035, 55),
-    primary: hex(0.62, 0.20, 28),
+    foreground: hex(0.92, 0.012, 75),             // warmer, brighter
+    card: hex(0.46, 0.035, 55),
+    primary: hex(0.65, 0.20, 28),                 // brighter on dark bg
     primaryForeground: hex(0.15, 0.01, 50),
-    border: hex(0.48, 0.03, 55),
-    mutedForeground: hex(0.65, 0.018, 55),
-    sidebar: hex(0.35, 0.035, 55),
-    sidebarBorder: hex(0.44, 0.03, 55),
-    success: hex(0.58, 0.16, 145),
+    border: hex(0.50, 0.028, 55),
+    mutedForeground: hex(0.70, 0.015, 55),        // much brighter (was 0.65)
+    sidebar: hex(0.36, 0.03, 55),                 // slightly lighter for icon contrast
+    sidebarBorder: hex(0.46, 0.028, 55),
+    success: hex(0.60, 0.16, 145),
     warning: hex(0.72, 0.16, 75),
-    destructive: hex(0.60, 0.22, 27),
-    info: hex(0.58, 0.12, 240),
+    destructive: hex(0.62, 0.22, 27),
+    info: hex(0.60, 0.12, 240),
   },
   dark: {
     background: hex(0.18, 0.012, 260),
