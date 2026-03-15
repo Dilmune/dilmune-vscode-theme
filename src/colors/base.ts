@@ -22,33 +22,34 @@ export const baseColors: Record<Mode, BaseColors> = {
     destructive: hex(0.55, 0.24, 27),
     info: hex(0.58, 0.15, 240),
   },
-  // Dim: warm parchment — like aged paper, NOT muddy brown
+  // Dim: portal dim DNA — hue 78, chroma 0.028 (sandy clay cream)
   dim: {
-    background: hex(0.82, 0.02, 75),             // lifted from 0.70 — clean warm parchment
-    foreground: hex(0.18, 0.01, 260),
-    card: hex(0.85, 0.016, 75),
-    primary: hex(0.55, 0.19, 28),
+    background: hex(0.82, 0.028, 78),             // portal's exact hue+chroma, darker lightness
+    foreground: hex(0.22, 0.015, 50),             // dark brown (portal dim foreground)
+    card: hex(0.78, 0.028, 78),                   // following portal's card pattern
+    primary: hex(0.56, 0.18, 30),                 // portal dim primary exactly
     primaryForeground: palette.parchment[50],
-    border: hex(0.76, 0.018, 75),
-    mutedForeground: hex(0.50, 0.012, 60),        // enough gap from bg
-    sidebar: hex(0.78, 0.022, 75),                // distinct from editor
-    sidebarBorder: hex(0.74, 0.018, 75),
+    border: hex(0.75, 0.025, 76),                 // portal dim border pattern
+    mutedForeground: hex(0.50, 0.015, 50),        // portal dim muted pattern
+    sidebar: hex(0.78, 0.028, 76),                // portal dim sidebar exactly (same chroma+hue)
+    sidebarBorder: hex(0.73, 0.025, 76),
     success: hex(0.52, 0.16, 145),
     warning: hex(0.62, 0.16, 75),
     destructive: hex(0.52, 0.22, 27),
     info: hex(0.52, 0.14, 240),
   },
-  // Dusk: warm chocolate — sidebar icons must be visible
+  // Dusk: dark version of portal dim — SAME hue 78 family, just darker
+  // The brand red shows through in the warm undertone
   dusk: {
-    background: palette.parchment[700],
-    foreground: hex(0.92, 0.012, 75),             // warmer, brighter
-    card: hex(0.46, 0.035, 55),
-    primary: hex(0.65, 0.20, 28),                 // brighter on dark bg
-    primaryForeground: hex(0.15, 0.01, 50),
-    border: hex(0.50, 0.028, 55),
-    mutedForeground: hex(0.70, 0.015, 55),        // much brighter (was 0.65)
-    sidebar: hex(0.36, 0.03, 55),                 // slightly lighter for icon contrast
-    sidebarBorder: hex(0.46, 0.028, 55),
+    background: hex(0.35, 0.028, 78),             // portal dim hue+chroma at dark lightness
+    foreground: hex(0.92, 0.015, 78),             // warm parchment foreground
+    card: hex(0.40, 0.028, 78),
+    primary: hex(0.65, 0.20, 28),                 // bright brand red on dark
+    primaryForeground: hex(0.15, 0.015, 50),
+    border: hex(0.45, 0.025, 78),
+    mutedForeground: hex(0.68, 0.018, 60),        // visible muted
+    sidebar: hex(0.30, 0.028, 78),                // darker sidebar, same warmth
+    sidebarBorder: hex(0.40, 0.025, 78),
     success: hex(0.60, 0.16, 145),
     warning: hex(0.72, 0.16, 75),
     destructive: hex(0.62, 0.22, 27),
