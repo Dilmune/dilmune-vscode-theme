@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+- Restructured from 5 modes (14 themes) to 4 distinct modes (12 themes)
+- **Dim** is now a mid-tone warm parchment (L=0.70) with dark text — restores the creamy portal identity
+- **Dusk** (new name) replaces the old Dim — warm dark brown candlelit study
+- Removed Dim Warm, Dim Deep, and Dark Muted variants
+- Each mode now occupies a clearly distinct lightness band: Light (0.92), Dim (0.70), Dusk (0.30), Dark (0.18)
+
 ## 1.0.0
 
 - 14 theme variants across 5 modes

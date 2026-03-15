@@ -2,7 +2,7 @@ import type { BaseColors, Mode } from '../types'
 import { adjustLightness, withOpacity } from '../colors/variants'
 
 export function buildEditorColors(colors: BaseColors, mode: Mode): Record<string, string> {
-  const isLight = mode === 'light'
+  const isLight = mode === 'light' || mode === 'dim'
   const selectionOpacity = isLight ? 0.15 : 0.20
   const activityBarBg = adjustLightness(colors.sidebar, isLight ? -0.02 : -0.02)
   const statusBarBg = adjustLightness(colors.sidebar, isLight ? -0.02 : -0.02)

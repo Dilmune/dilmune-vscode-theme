@@ -1,31 +1,8 @@
 # Dilmune Theme
 
-A warm, bold theme family for Visual Studio Code — built around the Dilmune brand red `#d13e36`, earthy backgrounds, and confident syntax colors. 14 themes across 5 modes. Dim is the flagship.
+A warm, bold theme family for Visual Studio Code — built around the Dilmune brand red `#d13e36`, earthy backgrounds, and confident syntax colors. 12 themes across 4 distinct modes.
 
 ## The Modes
-
-### Dim (The Flagship)
-
-Dim is the soul of Dilmune. Warm dark brown backgrounds like a candlelit study. The brand red glows against it. This is where the theme lives.
-
-| Theme | Description |
-|-------|-------------|
-| **Dilmune Dim** | The one. Warm dark brown, terracotta accents, everything you need. |
-| **Dilmune Dim Warm** | Even warmer — amber-tinted brown, like clay near a kiln. |
-| **Dilmune Dim Deep** | Darker mahogany. Night owl warmth that never turns cold. |
-| **Dilmune Dim Muted** | Desaturated for marathon sessions. Same warmth, less intensity. |
-| **Dilmune Dim High Contrast** | Sharp and accessible. Warmth with crisp edges. |
-
-### Dark
-
-Deep blue-black with presence. Not void — depth.
-
-| Theme | Description |
-|-------|-------------|
-| **Dilmune Dark** | Deep blue-black with the brand red cutting through. |
-| **Dilmune Dark Soft** | Slightly lifted. Gentle on the eyes, still dark. |
-| **Dilmune Dark Muted** | Minimal. Desaturated. Zero distraction. |
-| **Dilmune Dark High Contrast** | Maximum contrast for accessibility. |
 
 ### Light
 
@@ -37,16 +14,43 @@ Warm cream — never sterile white. Like aged paper.
 | **Dilmune Light Muted** | Softer accents for a paper-like feel. |
 | **Dilmune Light High Contrast** | Bold on cream. High readability. |
 
+### Dim
+
+Mid-tone warm parchment — like coffee with milk. Dark text on a sandy clay background. The creamy portal feel, darker than light but not dark.
+
+| Theme | Description |
+|-------|-------------|
+| **Dilmune Dim** | Warm parchment with dark text. The in-between. |
+| **Dilmune Dim Muted** | Desaturated for marathon sessions. Same warmth, less intensity. |
+| **Dilmune Dim High Contrast** | Sharp and accessible. Warmth with crisp edges. |
+
+### Dusk
+
+Warm dark brown — candlelit study. The brand red glows against it. This is where the theme lives.
+
+| Theme | Description |
+|-------|-------------|
+| **Dilmune Dusk** | The one. Warm dark brown, terracotta accents, everything you need. |
+| **Dilmune Dusk Muted** | Desaturated for marathon sessions. Same warmth, less intensity. |
+| **Dilmune Dusk High Contrast** | Sharp and accessible. Warmth with crisp edges. |
+
+### Dark
+
+Deep blue-black with presence. Not void — depth.
+
+| Theme | Description |
+|-------|-------------|
+| **Dilmune Dark** | Deep blue-black with the brand red cutting through. |
+| **Dilmune Dark Soft** | Slightly lifted. Gentle on the eyes, still dark. |
+| **Dilmune Dark High Contrast** | Maximum contrast for accessibility. |
+
 ## Screenshots
 
-### Dilmune Dim (Flagship)
+### Dilmune Dusk (Flagship)
+![Dilmune Dusk](screenshots/dusk.png)
+
+### Dilmune Dim
 ![Dilmune Dim](screenshots/dim.png)
-
-### Dilmune Dim Warm
-![Dilmune Dim Warm](screenshots/dim-warm.png)
-
-### Dilmune Dim Deep
-![Dilmune Dim Deep](screenshots/dim-deep.png)
 
 ### Dilmune Dark
 ![Dilmune Dark](screenshots/dark.png)
@@ -113,7 +117,7 @@ Soft edges that match the warm Dilmune palette. Great ligatures. One of the most
 
 #### IBM Plex Mono — Humanist Character
 
-Slightly warm, humanist design. Has personality without being loud. Pairs beautifully with Dim mode.
+Slightly warm, humanist design. Has personality without being loud. Pairs beautifully with Dusk mode.
 
 ```json
 {
@@ -127,7 +131,7 @@ Slightly warm, humanist design. Has personality without being loud. Pairs beauti
 
 #### Cascadia Code — Friendly & Modern
 
-Microsoft's own. Relaxed, friendly feel that complements the cozy Dim modes.
+Microsoft's own. Relaxed, friendly feel that complements the cozy Dusk mode.
 
 ```json
 {
@@ -181,7 +185,7 @@ Syntax highlighting individually tuned for:
 
 **Also optimized:** Python, Rust, Java, C#, C/C++, PHP, JavaScript
 
-Every language VS Code supports will work — the above have been hand-tested across all 14 themes.
+Every language VS Code supports will work — the above have been hand-tested across all 12 themes.
 
 ## The Brand
 
