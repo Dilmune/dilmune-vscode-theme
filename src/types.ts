@@ -10,6 +10,7 @@ export interface ThemeConfig {
 }
 
 export interface BaseColors {
+  [key: string]: string
   background: string
   foreground: string
   card: string
@@ -26,6 +27,7 @@ export interface BaseColors {
 }
 
 export interface SyntaxColors {
+  [key: string]: string
   keyword: string
   string: string
   function: string
@@ -63,5 +65,5 @@ export interface ThemeOutput {
       fontStyle?: string
     }
   }>
-  semanticTokenColors: Record<string, string | { foreground: string; fontStyle?: string }>
+  semanticTokenColors: Record<string, string | { foreground?: string; fontStyle?: string }>
 }

@@ -4,7 +4,7 @@ import { adjustLightness, adjustChroma } from '../colors/variants'
 export function buildSemanticTokenColors(
   colors: SyntaxColors,
   isDark = false
-): Record<string, string | { foreground: string; fontStyle?: string }> {
+): Record<string, string | { foreground?: string; fontStyle?: string }> {
   return {
     function: colors.function,
     'function.declaration': adjustChroma(colors.function, 1.05),

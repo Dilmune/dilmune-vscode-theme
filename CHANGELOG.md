@@ -1,23 +1,19 @@
 # Changelog
 
-## 1.1.0
-
-- Restructured from 5 modes (14 themes) to 4 distinct modes (12 themes)
-- **Dim** is now a mid-tone warm parchment (L=0.70) with dark text — restores the creamy portal identity
-- **Dusk** (new name) replaces the old Dim — warm dark brown candlelit study
-- Removed Dim Warm, Dim Deep, and Dark Muted variants
-- Each mode now occupies a clearly distinct lightness band: Light (0.92), Dim (0.70), Dusk (0.30), Dark (0.18)
-
 ## 1.0.0
 
-- 14 theme variants across 5 modes
-- **Dim mode** (flagship): Default, Warm, Deep, Muted, High Contrast
-- **Dark mode**: Default, Soft, Muted, High Contrast
-- **Light mode**: Default, Muted, High Contrast
+- 12 theme variants across 4 distinct modes
+- **Light** (L=0.92): warm cream — Default, Muted, High Contrast
+- **Dim** (L=0.82): mid-tone warm parchment with dark text — Default, Muted, High Contrast
+- **Dusk** (L=0.35): warm dark brown, candlelit — Default, Muted, High Contrast
+- **Dark** (L=0.18): deep blue-black — Default, Soft, High Contrast
 - Brand primary `#d13e36` derived from the Dilmune logo
-- 226 VS Code color keys per theme
-- 35 TextMate token rules with language-specific overrides
-- 19 semantic token mappings
-- Syntax optimized for Go, TypeScript, Python, Rust, Java, C/C++, PHP, C#, SQL, CSS
+- OKLch color space for perceptually uniform colors
+- Dim and Dusk share portal dim DNA — hue 78, chroma 0.028
+- 314 VS Code editor color keys per theme
+- 58 TextMate token rules with language-specific overrides
+- 35 semantic token mappings with modifier support
+- Syntax optimized for Go, TypeScript, TSX/JSX, Python, Rust, Java, C#, C/C++, PHP, SQL, CSS, YAML, JSON, Markdown, Shell, TOML
 - Terminal ANSI color palette
+- Custom markdown preview styling
 - Full editor chrome: sticky scroll, inlay hints, suggest widget, peek view, menus, command center

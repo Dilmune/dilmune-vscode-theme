@@ -57,9 +57,9 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'breadcrumb.foreground': breadcrumbFg,
     'breadcrumb.focusForeground': colors.foreground,
     'breadcrumb.activeSelectionForeground': colors.foreground,
-    'tab.inactiveForeground': colors.mutedForeground,
+    'tab.inactiveForeground': adjustLightness(colors.mutedForeground, isLight ? -0.05 : 0.05),
     'tab.activeForeground': colors.foreground,
-    'statusBar.foreground': colors.mutedForeground,
+    'statusBar.foreground': adjustLightness(colors.foreground, isLight ? 0.10 : -0.10),
     'statusBar.debuggingForeground': colors.primaryForeground,
     'titleBar.activeForeground': colors.foreground,
     'titleBar.inactiveForeground': colors.mutedForeground,
@@ -141,7 +141,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'editor.findMatchBackground': withOpacity(colors.warning, 0.30),
     'editor.findMatchHighlightBackground': withOpacity(colors.warning, 0.15),
     'editorCursor.foreground': colors.primary,
-    'editor.lineHighlightBackground': withOpacity(colors.foreground, 0.04),
+    'editor.lineHighlightBackground': withOpacity(colors.foreground, 0.08),
     'editor.rangeHighlightBackground': withOpacity(colors.primary, 0.06),
 
     // ── Sticky scroll ────────────────────────────────────────────
