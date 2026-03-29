@@ -1,13 +1,14 @@
 {
   "name": "dilmune-theme",
   "displayName": "Dilmune Theme",
-  "description": "12 warm, bold themes across 4 distinct modes — Light (cream), Dim (warm parchment), Dusk (candlelit brown), Dark (blue-black). Built around the Dilmune brand red.",
-  "version": "1.0.0",
+  "description": "Warm, bold color themes built on terracotta, sage, and verdigris. Eye-comfortable in any light — from cream parchment to candlelit dusk to blue-black night.",
+  "version": "1.1.0",
   "publisher": "dilmune",
   "license": "MIT",
   "icon": "icon.png",
+  "qna": "marketplace",
   "galleryBanner": {
-    "color": "#d13e36",
+    "color": "#43392a",
     "theme": "dark"
   },
   "homepage": "https://github.com/Dilmune/dilmune-vscode-theme",
@@ -26,7 +27,6 @@
     "color-theme",
     "dark",
     "light",
-    "dim",
     "warm",
     "warm-dark",
     "terracotta",
@@ -34,9 +34,18 @@
     "cozy",
     "dilmune",
     "gruvbox-alternative",
+    "solarized-alternative",
+    "catppuccin-alternative",
     "eye-comfort",
+    "low-blue-light",
+    "parchment",
+    "cream",
+    "sepia",
+    "earth-tones",
+    "nature",
+    "contrast",
     "brown",
-    "red"
+    "night"
   ],
   "engines": {
     "vscode": "^1.80.0"
@@ -52,11 +61,6 @@
         "path": "./themes/dilmune-light.json"
       },
       {
-        "label": "Dilmune Light Muted",
-        "uiTheme": "vs",
-        "path": "./themes/dilmune-light-muted.json"
-      },
-      {
         "label": "Dilmune Light High Contrast",
         "uiTheme": "hc-light",
         "path": "./themes/dilmune-light-high-contrast.json"
@@ -67,24 +71,9 @@
         "path": "./themes/dilmune-dim.json"
       },
       {
-        "label": "Dilmune Dim Muted",
-        "uiTheme": "vs",
-        "path": "./themes/dilmune-dim-muted.json"
-      },
-      {
-        "label": "Dilmune Dim High Contrast",
-        "uiTheme": "hc-light",
-        "path": "./themes/dilmune-dim-high-contrast.json"
-      },
-      {
         "label": "Dilmune Dusk",
         "uiTheme": "vs-dark",
         "path": "./themes/dilmune-dusk.json"
-      },
-      {
-        "label": "Dilmune Dusk Muted",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dilmune-dusk-muted.json"
       },
       {
         "label": "Dilmune Dusk High Contrast",
@@ -95,11 +84,6 @@
         "label": "Dilmune Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dilmune-dark.json"
-      },
-      {
-        "label": "Dilmune Dark Soft",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dilmune-dark-soft.json"
       },
       {
         "label": "Dilmune Dark High Contrast",

@@ -28,8 +28,8 @@ export function buildSemanticTokenColors(
     '*.deprecated': { fontStyle: 'strikethrough' },
     selfKeyword: { foreground: colors.keyword, fontStyle: 'italic' },
 
-    'function.async': { foreground: colors.verdigris, fontStyle: 'italic' },
-    'method.async': { foreground: colors.verdigris, fontStyle: 'italic' },
+    'function.async': colors.verdigris,
+    'method.async': colors.verdigris,
 
     'method.static': { foreground: colors.verdigris, fontStyle: 'underline' },
     'property.static': { foreground: colors.variable, fontStyle: 'underline' },
@@ -48,5 +48,29 @@ export function buildSemanticTokenColors(
     'property.readonly': colors.amber,
 
     '*.documentation': { foreground: colors.comment, fontStyle: 'italic' },
+
+    // Struct (Go, Rust, C)
+    struct: colors.type,
+
+    // Trait/Protocol (Rust)
+    'interface.trait': { foreground: colors.type, fontStyle: 'italic' },
+
+    // Macro (Rust)
+    macro: { foreground: colors.terracotta, fontStyle: 'bold' },
+
+    // Lifetime (Rust)
+    lifetime: colors.decorator,
+
+    // Annotation (Java, Python)
+    annotation: colors.decorator,
+
+    // Label (goto, loop labels)
+    label: colors.terracotta,
+
+    // Type parameter (generics)
+    typeParameter: { foreground: colors.type, fontStyle: 'italic' },
+
+    // Regexp
+    regexp: colors.clay,
   }
 }

@@ -158,7 +158,7 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
         'keyword.control.directive.define',
         'punctuation.definition.directive',
       ],
-      settings: { foreground: colors.clay, fontStyle: 'italic' },
+      settings: { foreground: colors.clay },
     },
     {
       name: 'Rust macros',
@@ -168,7 +168,7 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
     {
       name: 'Rust/C++ attributes',
       scope: ['meta.attribute.rust', 'meta.attribute.cpp'],
-      settings: { foreground: colors.fossil, fontStyle: 'italic' },
+      settings: { foreground: colors.fossil },
     },
     {
       name: 'Namespaces and modules',
@@ -183,7 +183,7 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
     {
       name: 'Support classes (console, Error, Promise)',
       scope: ['support.class.console', 'support.class.error', 'support.class.promise'],
-      settings: { foreground: colors.sandstone, fontStyle: 'italic' },
+      settings: { foreground: colors.sandstone },
     },
     // Go-specific
     {
@@ -307,7 +307,7 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
     {
       name: 'Import/export',
       scope: ['keyword.control.import', 'keyword.control.export', 'keyword.control.from'],
-      settings: { foreground: colors.keyword, fontStyle: 'italic' },
+      settings: { foreground: colors.keyword },
     },
     {
       name: 'Interface declarations',
@@ -323,7 +323,7 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
     {
       name: 'Shell commands',
       scope: ['support.function.builtin.shell'],
-      settings: { foreground: colors.verdigris, fontStyle: 'italic' },
+      settings: { foreground: colors.verdigris },
     },
     // TOML
     {
@@ -345,6 +345,118 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       ],
       settings: { foreground: colors.string },
     },
+    // ── Go-specific additions ────────────────────────────────────
+    {
+      name: 'Go struct field names',
+      scope: ['variable.other.member.go', 'variable.other.field.go'],
+      settings: { foreground: colors.attribute },
+    },
+    {
+      name: 'Go interface method declarations',
+      scope: ['entity.name.function.member.go'],
+      settings: { foreground: colors.function },
+    },
+
+    // ── Rust-specific additions ──────────────────────────────────
+    {
+      name: 'Rust trait names',
+      scope: ['entity.name.type.trait.rust'],
+      settings: { foreground: colors.type, fontStyle: 'italic' },
+    },
+    {
+      name: 'Rust where clause',
+      scope: ['keyword.other.where.rust'],
+      settings: { foreground: colors.keyword },
+    },
+
+    // ── Python-specific additions ────────────────────────────────
+    {
+      name: 'Python f-string expressions',
+      scope: [
+        'meta.fstring.python source.python.embedded',
+        'punctuation.definition.expression.python',
+      ],
+      settings: { foreground: colors.terracotta },
+    },
+    {
+      name: 'Python type hints',
+      scope: ['meta.function.parameters.python support.type.python'],
+      settings: { foreground: colors.type },
+    },
+
+    // ── C#-specific additions ────────────────────────────────────
+    {
+      name: 'C# LINQ keywords',
+      scope: [
+        'keyword.query.linq.cs',
+        'keyword.other.linq.cs',
+      ],
+      settings: { foreground: colors.keyword },
+    },
+    {
+      name: 'C# attributes',
+      scope: ['meta.attribute.cs'],
+      settings: { foreground: colors.decorator },
+    },
+
+    // ── Java-specific additions ──────────────────────────────────
+    {
+      name: 'Java annotations',
+      scope: ['storage.type.annotation.java', 'punctuation.definition.annotation.java'],
+      settings: { foreground: colors.decorator },
+    },
+
+    // ── TSX/JSX additions ────────────────────────────────────────
+    {
+      name: 'JSX/TSX spread attributes',
+      scope: ['keyword.operator.spread.tsx', 'keyword.operator.spread.jsx'],
+      settings: { foreground: colors.operator },
+    },
+    {
+      name: 'JSX/TSX fragment',
+      scope: [
+        'punctuation.definition.tag.begin.tsx',
+        'punctuation.definition.tag.end.tsx',
+        'punctuation.definition.tag.begin.jsx',
+        'punctuation.definition.tag.end.jsx',
+      ],
+      settings: { foreground: colors.terracotta },
+    },
+
+    // ── CSS additions ────────────────────────────────────────────
+    {
+      name: 'CSS pseudo-elements and pseudo-classes',
+      scope: [
+        'entity.other.attribute-name.pseudo-element.css',
+        'entity.other.attribute-name.pseudo-class.css',
+      ],
+      settings: { foreground: colors.clay },
+    },
+    {
+      name: 'SCSS variables',
+      scope: ['variable.scss'],
+      settings: { foreground: colors.amber },
+    },
+
+    // ── C/C++ additions ─────────────────────────────────────────
+    {
+      name: 'C/C++ template parameters',
+      scope: ['entity.name.type.template.cpp'],
+      settings: { foreground: colors.type, fontStyle: 'italic' },
+    },
+
+    // ── PHP additions ────────────────────────────────────────────
+    {
+      name: 'PHP variable sigils',
+      scope: ['punctuation.definition.variable.php'],
+      settings: { foreground: colors.variable },
+    },
+    {
+      name: 'PHP namespaces',
+      scope: ['entity.name.type.namespace.php', 'support.other.namespace.php'],
+      settings: { foreground: colors.namespace },
+    },
+
     // Deprecated
     {
       name: 'Deprecated',

@@ -11,3 +11,5 @@ dist/
 .github/
 package-lock.json
 docs/
+contrast-report.md
+.claude/

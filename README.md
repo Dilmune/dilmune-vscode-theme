@@ -1,34 +1,33 @@
 # Dilmune Theme
 
-A warm theme family for Visual Studio Code — 12 themes across 4 modes, built around the Dilmune brand red `#d13e36` and earthy backgrounds.
+A warm, earthy theme that actually cares about contrast. If you like Gruvbox or Catppuccin but want something that feels like aged paper and terracotta — Dilmune is for you.
+
+Built from OKLch color space for perceptually uniform contrast across every mode.
 
 ## Screenshots
 
 ### Dilmune Dusk (Flagship)
 ![Dilmune Dusk](screenshots/dusk.png)
 
-### Dilmune Dark
-![Dilmune Dark](screenshots/dark.png)
-
-### Dilmune Dim
-![Dilmune Dim](screenshots/dim.png)
-
-### Dilmune Dark Soft
-![Dilmune Dark Soft](screenshots/dark-soft.png)
-
 ### Dilmune Light
 ![Dilmune Light](screenshots/light.png)
 
-## Modes
+### Dilmune Dark
+![Dilmune Dark](screenshots/dark.png)
 
-| Mode | Variants | Description |
-|------|----------|-------------|
-| **Light** | Default, Muted, High Contrast | Warm cream background with dark text. |
-| **Dim** | Default, Muted, High Contrast | Mid-tone parchment. Darker than light, not dark. |
-| **Dusk** | Default, Muted, High Contrast | Warm dark brown. The flagship. |
-| **Dark** | Default, Soft, High Contrast | Deep blue-black. |
+## Themes
 
-## Installation
+| Theme | Type | Description |
+|-------|------|-------------|
+| **Dilmune Dusk** | Dark | Warm candlelit brown — the flagship |
+| **Dilmune Dusk High Contrast** | HC Dark | Accessibility variant |
+| **Dilmune Light** | Light | Warm cream parchment |
+| **Dilmune Light High Contrast** | HC Light | Accessibility variant |
+| **Dilmune Dark** | Dark | Deep blue-black |
+| **Dilmune Dark High Contrast** | HC Dark | Accessibility variant |
+| **Dilmune Dim** | Light | Mid-tone parchment — between light and dark |
+
+## Install
 
 1. Open **Extensions** (`Cmd+Shift+X` / `Ctrl+Shift+X`)
 2. Search **"Dilmune Theme"**
@@ -36,7 +35,7 @@ A warm theme family for Visual Studio Code — 12 themes across 4 modes, built a
 
 Or manually:
 ```bash
-code --install-extension dilmune-theme-1.0.0.vsix
+code --install-extension dilmune-theme-1.1.0.vsix
 ```
 
 ## Recommended Setup
@@ -61,13 +60,19 @@ code --install-extension dilmune-theme-1.0.0.vsix
 
 ## Language Support
 
-Hand-tested across all 12 themes: Go, TypeScript, TSX/JSX, Python, Rust, Java, C#, C/C++, PHP, SQL, CSS, JSON, YAML, Markdown.
+Hand-tested: Go, TypeScript, TSX/JSX, Python, Rust, Java, C#, C/C++, PHP, SQL, CSS, JSON, YAML, Markdown.
 
-Every language VS Code supports will work.
+Works with every language VS Code supports.
 
-## The Brand
+## Color Philosophy
 
-Built from the [Dilmune Cloud](https://dilmune.com) design system. The primary `#d13e36` comes from the Dilmune logo — inspired by ancient terracotta and the warmth of the Persian Gulf region where the Dilmune civilization thrived.
+Every color in Dilmune is defined in OKLch — a perceptually uniform color space where equal numeric changes produce equal visual changes. This means:
+
+- Contrast ratios are enforced at build time (WCAG AA minimum)
+- No two syntax tokens are perceptually indistinguishable (delta-E > 5.0)
+- Variants are generated programmatically — consistency is mechanical, not manual
+
+The palette: terracotta (keywords), sage (strings), verdigris (functions), clay-rose (types), amber (constants), fossil (decorators), dune (operators). All grounded in warm earth tones inspired by the ancient Dilmune civilization.
 
 ## License
 
