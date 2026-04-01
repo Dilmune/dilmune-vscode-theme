@@ -94,16 +94,21 @@ export function applyBaseVariant(colors: BaseColors, variant: 'default' | 'soft'
         mutedForeground: colors.mutedForeground,
         primaryForeground: colors.primaryForeground,
       }
-    case 'high-contrast':
+    case 'high-contrast': {
+      const isLight = toOklch(colors.background).l > 0.5
+      const borderShift = isLight ? -0.25 : 0.20
       return {
-        ...boost(colors, 0.15),
+        ...boost(colors, 0.2),
         foreground: colors.foreground,
         background: colors.background,
         card: colors.card,
         sidebar: colors.sidebar,
-        mutedForeground: colors.mutedForeground,
+        mutedForeground: adjustColor(colors.mutedForeground, { lightness: isLight ? -0.06 : 0.06 }),
         primaryForeground: colors.primaryForeground,
+        border: adjustColor(colors.border, { lightness: borderShift }),
+        sidebarBorder: adjustColor(colors.sidebarBorder, { lightness: isLight ? borderShift : borderShift + 0.05 }),
       }
+    }
   }
 }
 
