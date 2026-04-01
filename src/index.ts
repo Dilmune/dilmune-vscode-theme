@@ -29,7 +29,7 @@ export function buildTheme(config: ThemeConfig): ThemeOutput {
     name: config.name,
     type: config.type,
     semanticHighlighting: true,
-    colors: buildEditorColors(base, config.mode, syntax),
+    colors: buildEditorColors(base, config.mode, syntax, config.variant),
     tokenColors: buildTokenColors(syntax),
     semanticTokenColors: buildSemanticTokenColors(syntax, isDark),
   }

@@ -1,19 +1,25 @@
 import { formatHex } from 'culori'
-import type { BaseColors, Mode, SyntaxColors } from '../types'
+import type { BaseColors, Mode, Variant, SyntaxColors } from '../types'
 import { adjustLightness, withOpacity } from '../colors/variants'
 
 function hex(l: number, c: number, h: number): string {
   return formatHex({ mode: 'oklch', l, c, h })
 }
 
-export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: SyntaxColors): Record<string, string> {
+export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: SyntaxColors, variant: Variant = 'default'): Record<string, string> {
   const isLight = mode === 'light' || mode === 'dim'
   const isDark = mode === 'dark' || mode === 'dusk'
+  const isHC = variant === 'high-contrast'
   const selectionOpacity = isLight ? 0.15 : 0.20
   const activityBarBg = adjustLightness(colors.sidebar, isLight ? -0.02 : -0.02)
   const statusBarBg = adjustLightness(colors.sidebar, isLight ? -0.02 : -0.02)
   const elevated = colors.card
   const breadcrumbFg = adjustLightness(colors.mutedForeground, isLight ? -0.03 : 0.06)
+
+  // HC border — a single solid color that frames every UI element
+  const contrastBorder = isHC
+    ? hex(isLight ? 0.58 : 0.62, 0.03, 78)
+    : undefined
 
   const syntaxString = syntax?.string ?? colors.success
   const syntaxConstant = syntax?.constant ?? colors.warning
@@ -441,5 +447,23 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
 
     // ── Sash ─────────────────────────────────────────────────────
     'sash.hoverBorder': colors.primary,
+
+    // ── High contrast overrides ──────────────────────────────────
+    // contrastBorder draws a solid border around every UI element
+    ...(contrastBorder ? {
+      'contrastBorder': contrastBorder,
+      'contrastActiveBorder': colors.primary,
+      'editor.selectionBackground': withOpacity(colors.primary, 0.30),
+      'editor.selectionHighlightBackground': withOpacity(colors.primary, 0.15),
+      'editor.wordHighlightBackground': withOpacity(colors.primary, 0.20),
+      'editor.wordHighlightStrongBackground': withOpacity(colors.primary, 0.35),
+      'editor.findMatchBackground': withOpacity(colors.warning, 0.40),
+      'editor.findMatchHighlightBackground': withOpacity(colors.warning, 0.25),
+      'list.activeSelectionBackground': withOpacity(colors.primary, 0.30),
+      'list.inactiveSelectionBackground': withOpacity(colors.primary, 0.20),
+      'list.hoverBackground': withOpacity(colors.primary, 0.12),
+      'editor.lineHighlightBackground': withOpacity(colors.foreground, 0.12),
+      'editorBracketMatch.border': colors.primary,
+    } : {}),
   }
 }
