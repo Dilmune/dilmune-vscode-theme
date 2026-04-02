@@ -24,7 +24,8 @@ for (const config of themeConfigs) {
 
   // Validate: get the resolved syntax colors and background for this config
   const base = applyBaseVariant(baseColors[config.mode], config.variant)
-  const syntax = applySyntaxVariant(syntaxColors[config.mode], config.variant)
+  const isDark = config.mode === 'dark' || config.mode === 'dusk'
+  const syntax = applySyntaxVariant(syntaxColors[config.mode], config.variant, isDark)
 
   const report = validateTheme(config.name, syntax, base.background)
   reports.push(report)

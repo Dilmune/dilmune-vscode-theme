@@ -112,7 +112,7 @@ export function applyBaseVariant(colors: BaseColors, variant: 'default' | 'soft'
   }
 }
 
-export function applySyntaxVariant(colors: SyntaxColors, variant: 'default' | 'soft' | 'muted' | 'high-contrast'): SyntaxColors {
+export function applySyntaxVariant(colors: SyntaxColors, variant: 'default' | 'soft' | 'muted' | 'high-contrast', isDark = false): SyntaxColors {
   switch (variant) {
     case 'default':
       return colors
@@ -123,7 +123,15 @@ export function applySyntaxVariant(colors: SyntaxColors, variant: 'default' | 's
       }
     case 'muted':
       return mute(colors, 0.4)
-    case 'high-contrast':
-      return boost(colors, 0.15)
+    case 'high-contrast': {
+      // Boost chroma AND push lightness away from background
+      const lShift = isDark ? 0.06 : -0.02
+      const boosted = boost(colors, 0.2)
+      const result = {} as Record<string, string>
+      for (const [key, value] of Object.entries(boosted)) {
+        result[key] = adjustColor(value, { lightness: lShift })
+      }
+      return result as SyntaxColors
+    }
   }
 }

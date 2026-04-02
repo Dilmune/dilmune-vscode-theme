@@ -22,8 +22,8 @@ const themeConfigs: ThemeConfig[] = [
 
 export function buildTheme(config: ThemeConfig): ThemeOutput {
   const base = applyBaseVariant(baseColors[config.mode], config.variant)
-  const syntax = applySyntaxVariant(syntaxColors[config.mode], config.variant)
   const isDark = config.mode === 'dark' || config.mode === 'dusk'
+  const syntax = applySyntaxVariant(syntaxColors[config.mode], config.variant, isDark)
 
   return {
     name: config.name,
