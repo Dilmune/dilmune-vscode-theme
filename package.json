@@ -11,7 +11,7 @@
     "color": "#43392a",
     "theme": "dark"
   },
-  "homepage": "https://github.com/Dilmune/dilmune-vscode-theme",
+  "homepage": "https://dilmune.com",
   "bugs": {
     "url": "https://github.com/Dilmune/dilmune-vscode-theme/issues"
   },
@@ -61,6 +61,16 @@
         "path": "./themes/dilmune-light.json"
       },
       {
+        "label": "Dilmune Light Linen",
+        "uiTheme": "vs",
+        "path": "./themes/dilmune-light-linen.json"
+      },
+      {
+        "label": "Dilmune Light Stone",
+        "uiTheme": "vs",
+        "path": "./themes/dilmune-light-stone.json"
+      },
+      {
         "label": "Dilmune Light High Contrast",
         "uiTheme": "hc-light",
         "path": "./themes/dilmune-light-high-contrast.json"
@@ -71,9 +81,29 @@
         "path": "./themes/dilmune-dim.json"
       },
       {
+        "label": "Dilmune Dim Linen",
+        "uiTheme": "vs",
+        "path": "./themes/dilmune-dim-linen.json"
+      },
+      {
+        "label": "Dilmune Dim Stone",
+        "uiTheme": "vs",
+        "path": "./themes/dilmune-dim-stone.json"
+      },
+      {
         "label": "Dilmune Dusk",
         "uiTheme": "vs-dark",
         "path": "./themes/dilmune-dusk.json"
+      },
+      {
+        "label": "Dilmune Dusk Linen",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dusk-linen.json"
+      },
+      {
+        "label": "Dilmune Dusk Stone",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dusk-stone.json"
       },
       {
         "label": "Dilmune Dusk High Contrast",
@@ -84,6 +114,16 @@
         "label": "Dilmune Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dilmune-dark.json"
+      },
+      {
+        "label": "Dilmune Dark Linen",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dark-linen.json"
+      },
+      {
+        "label": "Dilmune Dark Stone",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dilmune-dark-stone.json"
       },
       {
         "label": "Dilmune Dark High Contrast",

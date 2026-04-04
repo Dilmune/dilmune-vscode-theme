@@ -2,7 +2,7 @@ import { writeFileSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildTheme, themeConfigs } from '../src/index'
-import { validateTheme, printReport, markdownReport, type ValidationReport } from '../src/validation'
+import { validateTheme, printReport, markdownReport, validateUIContrast, printUIReport, type ValidationReport, type UIValidationReport } from '../src/validation'
 import { syntaxColors } from '../src/colors/syntax'
 import { baseColors } from '../src/colors/base'
 import { applyBaseVariant, applySyntaxVariant } from '../src/colors/variants'
@@ -27,9 +27,17 @@ for (const config of themeConfigs) {
   const isDark = config.mode === 'dark' || config.mode === 'dusk'
   const syntax = applySyntaxVariant(syntaxColors[config.mode], config.variant, isDark)
 
-  const report = validateTheme(config.name, syntax, base.background)
+  const report = validateTheme(config.name, syntax, base.background, config.variant)
   reports.push(report)
   printReport(report)
+
+  // Validate UI color pairs
+  const uiReport = validateUIContrast(config.name, theme.colors)
+  printUIReport(uiReport)
+
+  if (!uiReport.pass) {
+    hasFailures = true
+  }
 
   if (!report.contrastPass || !report.collisionPass) {
     hasFailures = true

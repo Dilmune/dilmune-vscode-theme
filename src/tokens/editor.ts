@@ -56,9 +56,10 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'foreground': colors.foreground,
     'editor.foreground': colors.foreground,
     'sideBar.foreground': adjustLightness(colors.foreground, isLight ? 0.08 : -0.05),
+    'sideBarTitle.foreground': adjustLightness(colors.foreground, isLight ? 0.08 : -0.05),
     'activityBar.foreground': colors.foreground,
     'activityBar.inactiveForeground': colors.mutedForeground,
-    'editorLineNumber.foreground': adjustLightness(colors.mutedForeground, isLight ? 0 : 0.03),
+    'editorLineNumber.foreground': adjustLightness(colors.mutedForeground, isLight ? 0 : 0.06),
     'editorLineNumber.activeForeground': colors.foreground,
     'breadcrumb.foreground': breadcrumbFg,
     'breadcrumb.focusForeground': colors.foreground,
@@ -136,6 +137,9 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'gitDecoration.untrackedResourceForeground': adjustLightness(colors.success, isLight ? 0.05 : -0.05),
     'gitDecoration.conflictingResourceForeground': colors.warning,
     'gitDecoration.ignoredResourceForeground': colors.mutedForeground,
+    'gitDecoration.renamedResourceForeground': syntax?.namespace ?? colors.info,
+    'gitDecoration.stageModifiedResourceForeground': syntax?.amber ?? colors.warning,
+    'gitDecoration.stageDeletedResourceForeground': syntax?.clay ?? colors.destructive,
 
     // ── Selection & highlights ───────────────────────────────────
     'editor.selectionBackground': withOpacity(colors.primary, selectionOpacity),
@@ -239,9 +243,35 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'settings.focusedRowBackground': withOpacity(colors.primary, 0.06),
     'settings.rowHoverBackground': withOpacity(colors.foreground, 0.03),
 
+    // ── Picker group ─────────────────────────────────────────────
+    'pickerGroup.foreground': colors.primary,
+    'pickerGroup.border': colors.border,
+
+    // ── Settings UI inputs ───────────────────────────────────────
+    'settings.textInputBackground': colors.card,
+    'settings.textInputForeground': colors.foreground,
+    'settings.textInputBorder': colors.border,
+    'settings.numberInputBackground': colors.card,
+    'settings.numberInputForeground': colors.foreground,
+    'settings.numberInputBorder': colors.border,
+    'settings.checkboxBackground': colors.card,
+    'settings.checkboxForeground': colors.primary,
+    'settings.checkboxBorder': colors.border,
+    'settings.dropdownBackground': colors.card,
+    'settings.dropdownForeground': colors.foreground,
+    'settings.dropdownBorder': colors.border,
+
     // ── Notebook (Jupyter) ───────────────────────────────────────
     'notebook.cellBorderColor': colors.border,
     'notebook.focusedCellBorder': colors.primary,
+    'notebook.cellEditorBackground': colors.card,
+    'notebook.editorBackground': colors.background,
+    'notebook.outputContainerBackgroundColor': withOpacity(colors.mutedForeground, 0.04),
+    'notebook.focusedEditorBorder': colors.primary,
+    'notebook.selectedCellBorder': colors.primary,
+    'notebook.inactiveFocusedCellBorder': colors.border,
+    'notebook.selectedCellBackground': withOpacity(colors.primary, 0.06),
+    'notebook.symbolHighlightBackground': withOpacity(syntaxConstant, 0.15),
 
     // ── Extension button ─────────────────────────────────────────
     'extensionButton.prominentBackground': colors.primary,
@@ -270,6 +300,11 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'banner.background': withOpacity(colors.primary, 0.15),
     'banner.foreground': colors.foreground,
 
+    // ── Text blocks (hover docs, Markdown preview) ──────────────
+    'textBlockQuote.background': withOpacity(colors.mutedForeground, 0.06),
+    'textBlockQuote.border': withOpacity(colors.primary, 0.4),
+    'textCodeBlock.background': withOpacity(colors.mutedForeground, 0.08),
+
     // ── Lightbulb ────────────────────────────────────────────────
     'editorLightBulb.foreground': colors.warning,
     'editorLightBulbAutoFix.foreground': colors.primary,
@@ -279,21 +314,35 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'diffEditor.removedTextBackground': withOpacity(colors.destructive, 0.12),
     'diffEditor.insertedLineBackground': withOpacity(colors.success, 0.08),
     'diffEditor.removedLineBackground': withOpacity(colors.destructive, 0.08),
+    'diffEditor.border': colors.border,
+    'diffEditor.diagonalFill': withOpacity(colors.mutedForeground, 0.08),
+    'diffEditorGutter.insertedLineBackground': withOpacity(colors.success, 0.12),
+    'diffEditorGutter.removedLineBackground': withOpacity(colors.destructive, 0.12),
+    'diffEditorOverview.insertedForeground': colors.success,
+    'diffEditorOverview.removedForeground': colors.destructive,
 
     // ── Merge conflict ───────────────────────────────────────────
     'merge.currentHeaderBackground': withOpacity(colors.success, 0.25),
     'merge.incomingHeaderBackground': withOpacity(colors.info, 0.25),
 
     // ── Minimap ──────────────────────────────────────────────────
+    'minimap.background': colors.background,
     'minimap.findMatchHighlight': withOpacity(colors.warning, 0.5),
     'minimap.selectionHighlight': withOpacity(colors.primary, 0.3),
     'minimap.errorHighlight': withOpacity(colors.destructive, 0.6),
     'minimap.warningHighlight': withOpacity(colors.warning, 0.6),
+    'minimapGutter.addedBackground': colors.success,
+    'minimapGutter.modifiedBackground': colors.info,
+    'minimapGutter.deletedBackground': colors.destructive,
+    'minimapSlider.background': withOpacity(colors.mutedForeground, 0.15),
+    'minimapSlider.hoverBackground': withOpacity(colors.mutedForeground, 0.25),
+    'minimapSlider.activeBackground': withOpacity(colors.mutedForeground, 0.35),
 
     // ── Scrollbar ────────────────────────────────────────────────
     'scrollbarSlider.background': withOpacity(colors.mutedForeground, 0.2),
     'scrollbarSlider.hoverBackground': withOpacity(colors.mutedForeground, 0.35),
     'scrollbarSlider.activeBackground': withOpacity(colors.mutedForeground, 0.5),
+    'scrollbar.shadow': withOpacity(colors.foreground, 0.08),
 
     // ── Bracket pair colorization ────────────────────────────────
     'editorBracketHighlight.foreground1': hex(isLight ? 0.50 : 0.70, 0.14, 28),
@@ -302,6 +351,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'editorBracketHighlight.foreground4': hex(isLight ? 0.42 : 0.66, 0.10, 140),
     'editorBracketHighlight.foreground5': hex(isLight ? 0.46 : 0.70, 0.10, 340),
     'editorBracketHighlight.foreground6': hex(isLight ? 0.44 : 0.64, 0.08, 260),
+    'editorBracketHighlight.unexpectedBracket.foreground': colors.destructive,
     'editorBracketMatch.background': withOpacity(colors.primary, 0.15),
     'editorBracketMatch.border': withOpacity(colors.primary, 0.5),
 
@@ -337,7 +387,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
 
     // ── Terminal ANSI colors ─────────────────────────────────────
     'terminal.ansiBlack': isLight ? colors.foreground : colors.background,
-    'terminal.ansiRed': colors.destructive,
+    'terminal.ansiRed': isDark ? adjustLightness(colors.destructive, 0.05) : colors.destructive,
     'terminal.ansiGreen': colors.success,
     'terminal.ansiYellow': colors.warning,
     'terminal.ansiBlue': colors.info,
@@ -349,7 +399,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'terminal.ansiBrightGreen': adjustLightness(colors.success, isLight ? -0.10 : 0.10),
     'terminal.ansiBrightYellow': adjustLightness(colors.warning, isLight ? -0.10 : 0.10),
     'terminal.ansiBrightBlue': adjustLightness(colors.info, isLight ? -0.10 : 0.10),
-    'terminal.ansiBrightMagenta': hex(isLight ? 0.58 : 0.78, 0.14, 350),
+    'terminal.ansiBrightMagenta': hex(isLight ? 0.52 : 0.78, 0.14, 350),
     'terminal.ansiBrightCyan': hex(isLight ? 0.48 : 0.78, 0.12, 180),
     'terminal.ansiBrightWhite': isLight ? colors.foreground : '#ffffff',
 

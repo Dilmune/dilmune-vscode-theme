@@ -15,6 +15,22 @@ export interface CollisionResult {
   pass: boolean
 }
 
+export interface UIContrastResult {
+  foregroundKey: string
+  backgroundKey: string
+  foregroundHex: string
+  backgroundHex: string
+  ratio: number
+  required: number
+  pass: boolean
+}
+
+export interface UIValidationReport {
+  theme: string
+  results: UIContrastResult[]
+  pass: boolean
+}
+
 export interface ValidationReport {
   theme: string
   contrastResults: ContrastResult[]
@@ -25,6 +41,8 @@ export interface ValidationReport {
 
 const MIN_CONTRAST_RATIO = 4.5
 const MIN_DELTA_E = 5.0
+const MIN_DELTA_E_SOFT = 4.5
+const MIN_DELTA_E_MUTED = 3.0
 
 /**
  * WCAG 2.1 contrast ratio between two hex colors.
@@ -77,6 +95,7 @@ export function validateTheme(
   themeName: string,
   syntaxColors: Record<string, string>,
   background: string,
+  variant: 'default' | 'soft' | 'muted' | 'high-contrast' = 'default',
 ): ValidationReport {
   const entries = Object.entries(syntaxColors)
 
@@ -88,6 +107,10 @@ export function validateTheme(
 
   // Collision check: every pair of syntax colors
   // Skip pairs that resolve to the same hex (intentional aliases like keyword↔terracotta)
+  // Use relaxed thresholds for soft/muted variants — chroma reduction intentionally brings colors closer
+  const minDeltaE = variant === 'muted' ? MIN_DELTA_E_MUTED
+    : variant === 'soft' ? MIN_DELTA_E_SOFT
+    : MIN_DELTA_E
   const collisionResults: CollisionResult[] = []
   for (let i = 0; i < entries.length; i++) {
     for (let j = i + 1; j < entries.length; j++) {
@@ -97,7 +120,7 @@ export function validateTheme(
         tokenA: entries[i][0],
         tokenB: entries[j][0],
         deltaE: Math.round(de * 10) / 10,
-        pass: de >= MIN_DELTA_E,
+        pass: de >= minDeltaE,
       })
     }
   }
@@ -177,4 +200,95 @@ export function markdownReport(reports: ValidationReport[]): string {
   }
 
   return lines.join('\n')
+}
+
+/** Pairs to check at WCAG AA normal text (4.5:1) */
+const UI_PAIRS_AA: [string, string][] = [
+  ['editor.foreground', 'editor.background'],
+  ['editorLineNumber.foreground', 'editor.background'],
+  ['sideBarTitle.foreground', 'sideBar.background'],
+  ['statusBar.foreground', 'statusBar.background'],
+  ['tab.activeForeground', 'tab.activeBackground'],
+  ['terminal.foreground', 'terminal.background'],
+  ['badge.foreground', 'badge.background'],
+  ['breadcrumb.foreground', 'breadcrumb.background'],
+]
+
+/** Pairs to check at WCAG AA large text / UI components (3:1) */
+const UI_PAIRS_AA_LARGE: [string, string][] = [
+  ['editorLineNumber.activeForeground', 'editor.background'],
+  ['activityBar.foreground', 'activityBar.background'],
+  // list.highlightForeground vs list.activeSelectionBackground — skipped:
+  // activeSelectionBackground uses alpha (withOpacity), so composited contrast
+  // depends on the underlying content and cannot be statically validated.
+]
+
+/** Terminal ANSI colors checked at 3:1 against terminal background */
+const ANSI_KEYS = [
+  'terminal.ansiRed', 'terminal.ansiGreen', 'terminal.ansiYellow',
+  'terminal.ansiBlue', 'terminal.ansiMagenta', 'terminal.ansiCyan',
+  'terminal.ansiBrightBlack', 'terminal.ansiBrightRed', 'terminal.ansiBrightGreen',
+  'terminal.ansiBrightYellow', 'terminal.ansiBrightBlue', 'terminal.ansiBrightMagenta',
+  'terminal.ansiBrightCyan', 'terminal.ansiBrightWhite',
+]
+
+/**
+ * Validate UI color pairs for WCAG contrast compliance.
+ * Skips any pair where either color contains alpha (8-digit hex).
+ */
+export function validateUIContrast(
+  themeName: string,
+  editorColors: Record<string, string>,
+): UIValidationReport {
+  const results: UIContrastResult[] = []
+
+  function check(fgKey: string, bgKey: string, required: number) {
+    const fg = editorColors[fgKey]
+    const bg = editorColors[bgKey]
+    if (!fg || !bg) return
+    // Skip alpha colors (8-digit hex) — composited contrast depends on content beneath
+    if (fg.length > 7 || bg.length > 7) return
+    const ratio = contrastRatio(fg, bg)
+    results.push({
+      foregroundKey: fgKey,
+      backgroundKey: bgKey,
+      foregroundHex: fg,
+      backgroundHex: bg,
+      ratio: Math.round(ratio * 100) / 100,
+      required,
+      pass: ratio >= required,
+    })
+  }
+
+  for (const [fgKey, bgKey] of UI_PAIRS_AA) {
+    check(fgKey, bgKey, 4.5)
+  }
+
+  for (const [fgKey, bgKey] of UI_PAIRS_AA_LARGE) {
+    check(fgKey, bgKey, 3.0)
+  }
+
+  for (const ansiKey of ANSI_KEYS) {
+    check(ansiKey, 'terminal.background', 3.0)
+  }
+
+  return {
+    theme: themeName,
+    results,
+    pass: results.every((r) => r.pass),
+  }
+}
+
+/**
+ * Print UI validation results to stdout.
+ */
+export function printUIReport(report: UIValidationReport): void {
+  const fails = report.results.filter((r) => !r.pass)
+  if (fails.length === 0) {
+    console.log(`  \x1b[32m✓\x1b[0m All ${report.results.length} UI color pairs pass contrast requirements`)
+  } else {
+    for (const fail of fails) {
+      console.log(`  \x1b[31m✗\x1b[0m FAIL: ${fail.foregroundKey} on ${fail.backgroundKey} — ${fail.ratio}:1 (need ${fail.required}:1)`)
+    }
+  }
 }

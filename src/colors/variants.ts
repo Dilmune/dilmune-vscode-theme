@@ -79,20 +79,41 @@ export function applyBaseVariant(colors: BaseColors, variant: 'default' | 'soft'
   switch (variant) {
     case 'default':
       return colors
-    case 'soft':
+    case 'soft': {
+      // Dark modes get a subtler lift — large shifts erode syntax contrast
+      const isDark = toOklch(colors.background).l < 0.5
+      const bgLift = isDark ? 0.03 : 0.06
+      const sidebarLift = isDark ? 0.04 : 0.07
+      const cardLift = isDark ? 0.03 : 0.05
+      const borderLift = isDark ? 0.02 : 0.04
       return {
         ...colors,
-        background: adjustLightness(colors.background, 0.06),
-        sidebar: adjustLightness(colors.sidebar, 0.07),
-        card: adjustLightness(colors.card, 0.05),
-        border: adjustLightness(colors.border, 0.04),
+        background: adjustLightness(colors.background, bgLift),
+        sidebar: adjustLightness(colors.sidebar, sidebarLift),
+        card: adjustLightness(colors.card, cardLift),
+        border: adjustLightness(colors.border, borderLift),
+        // Lift semantic colors to maintain contrast on the raised background
+        ...(isDark ? {
+          mutedForeground: adjustLightness(colors.mutedForeground, 0.03),
+          success: adjustLightness(colors.success, 0.03),
+          warning: adjustLightness(colors.warning, 0.03),
+          info: adjustLightness(colors.info, 0.03),
+          destructive: adjustLightness(colors.destructive, 0.03),
+        } : {}),
       }
+    }
     case 'muted':
       return {
         ...mute(colors, 0.4),
         foreground: colors.foreground,
         mutedForeground: colors.mutedForeground,
         primaryForeground: colors.primaryForeground,
+        // Preserve semantic colors — muting success/warning/info/destructive
+        // causes terminal ANSI and squiggly contrast failures
+        success: colors.success,
+        warning: colors.warning,
+        destructive: colors.destructive,
+        info: colors.info,
       }
     case 'high-contrast': {
       const isLight = toOklch(colors.background).l > 0.5
@@ -116,13 +137,30 @@ export function applySyntaxVariant(colors: SyntaxColors, variant: 'default' | 's
   switch (variant) {
     case 'default':
       return colors
-    case 'soft':
+    case 'soft': {
+      // Dark modes: lifted background erodes contrast, so boost syntax lightness more
+      const liftAmount = isDark ? 0.06 : 0.03
+      const softened = soften(mute(colors, 0.1), liftAmount)
       return {
-        ...soften(mute(colors, 0.1), 0.03),
-        comment: colors.comment,
+        ...softened,
+        // Preserve comment and operator — they're near-gray so 10% muting
+        // collapses their already-small delta-E (dim-linen was 2.9)
+        comment: isDark ? adjustColor(colors.comment, { lightness: 0.06 }) : colors.comment,
+        operator: isDark ? adjustColor(colors.operator, { lightness: 0.06 }) : colors.operator,
       }
-    case 'muted':
-      return mute(colors, 0.4)
+    }
+    case 'muted': {
+      // Chroma reduction can slightly shift sRGB luminance, causing
+      // borderline contrast failures. Nudge lightness to compensate:
+      // dark modes push lighter, light modes push darker.
+      const muted = mute(colors, 0.4)
+      const lNudge = isDark ? 0.01 : -0.01
+      const result = {} as Record<string, string>
+      for (const [key, value] of Object.entries(muted)) {
+        result[key] = adjustColor(value, { lightness: lNudge })
+      }
+      return result as SyntaxColors
+    }
     case 'high-contrast': {
       // Boost chroma AND push lightness away from background
       const lShift = isDark ? 0.06 : -0.02
