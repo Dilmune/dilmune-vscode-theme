@@ -202,12 +202,6 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       scope: ['entity.name.type.tsx', 'entity.name.type.ts'],
       settings: { foreground: colors.type },
     },
-    // Python-specific
-    {
-      name: 'Python builtins',
-      scope: ['support.function.builtin.python'],
-      settings: { foreground: colors.verdigris, fontStyle: 'italic' },
-    },
     // Rust-specific
     {
       name: 'Rust lifetimes',
@@ -457,11 +451,61 @@ export function buildTokenColors(colors: SyntaxColors): Array<{
       settings: { foreground: colors.namespace },
     },
 
-    // Deprecated
+    // ── Diff syntax ─────────────────────────────────────────────
+    {
+      name: 'Diff inserted',
+      scope: ['markup.inserted'],
+      settings: { foreground: colors.sage },
+    },
+    {
+      name: 'Diff deleted',
+      scope: ['markup.deleted'],
+      settings: { foreground: colors.clay },
+    },
+    {
+      name: 'Diff changed',
+      scope: ['markup.changed'],
+      settings: { foreground: colors.amber },
+    },
+    {
+      name: 'Diff header',
+      scope: ['meta.diff.header', 'meta.diff.index'],
+      settings: { foreground: colors.type, fontStyle: 'bold' },
+    },
+    // ── Invalid syntax ──────────────────────────────────────────
+    {
+      name: 'Invalid/illegal',
+      scope: ['invalid.illegal'],
+      settings: { foreground: colors.clay, fontStyle: 'underline' },
+    },
     {
       name: 'Deprecated',
       scope: ['invalid.deprecated'],
       settings: { fontStyle: 'strikethrough' },
+    },
+    // ── Regex internals ─────────────────────────────────────────
+    {
+      name: 'Regex operators (quantifiers, negation)',
+      scope: [
+        'keyword.operator.quantifier.regexp',
+        'keyword.operator.negation.regexp',
+      ],
+      settings: { foreground: colors.operator, fontStyle: 'bold' },
+    },
+    {
+      name: 'Regex groups and backreferences',
+      scope: [
+        'punctuation.definition.group.regexp',
+        'keyword.other.back-reference.regexp',
+        'punctuation.definition.character-class.regexp',
+      ],
+      settings: { foreground: colors.keyword },
+    },
+    // ── Python decorator names ──────────────────────────────────
+    {
+      name: 'Python decorator names',
+      scope: ['entity.name.function.decorator.python'],
+      settings: { foreground: colors.decorator },
     },
   ]
 }
