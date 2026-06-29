@@ -81,7 +81,7 @@ export function applyBaseVariant(colors: BaseColors, variant: 'default' | 'soft'
       return colors
     case 'soft': {
       // Dark modes get a subtler lift — large shifts erode syntax contrast
-      const isDark = toOklch(colors.background).l < 0.5
+      const isDark = (toOklch(colors.background).l ?? 0) < 0.5
       const bgLift = isDark ? 0.03 : 0.06
       const sidebarLift = isDark ? 0.04 : 0.07
       const cardLift = isDark ? 0.03 : 0.05
@@ -116,7 +116,7 @@ export function applyBaseVariant(colors: BaseColors, variant: 'default' | 'soft'
         info: colors.info,
       }
     case 'high-contrast': {
-      const isLight = toOklch(colors.background).l > 0.5
+      const isLight = (toOklch(colors.background).l ?? 0) > 0.5
       const borderShift = isLight ? -0.25 : 0.20
       return {
         ...boost(colors, 0.2),

@@ -15,17 +15,30 @@ Built from OKLch color space for perceptually uniform contrast across every mode
 ### Dilmune Dark
 ![Dilmune Dark](screenshots/dark.png)
 
+### Dilmune Dim
+![Dilmune Dim](screenshots/dim.png)
+
 ## Themes
 
 | Theme | Type | Description |
 |-------|------|-------------|
 | **Dilmune Dusk** | Dark | Warm candlelit brown — the flagship |
+| **Dilmune Dusk Linen** | Dark | Softened, gently lifted |
+| **Dilmune Dusk Stone** | Dark | Muted, reduced chroma |
 | **Dilmune Dusk High Contrast** | HC Dark | Accessibility variant |
 | **Dilmune Light** | Light | Warm cream parchment |
+| **Dilmune Light Linen** | Light | Softened |
+| **Dilmune Light Stone** | Light | Muted |
 | **Dilmune Light High Contrast** | HC Light | Accessibility variant |
-| **Dilmune Dark** | Dark | Deep blue-black |
-| **Dilmune Dark High Contrast** | HC Dark | Accessibility variant |
 | **Dilmune Dim** | Light | Mid-tone parchment — between light and dark |
+| **Dilmune Dim Linen** | Light | Softened |
+| **Dilmune Dim Stone** | Light | Muted |
+| **Dilmune Dark** | Dark | Deep blue-black |
+| **Dilmune Dark Linen** | Dark | Softened |
+| **Dilmune Dark Stone** | Dark | Muted |
+| **Dilmune Dark High Contrast** | HC Dark | Accessibility variant |
+
+Every mode comes in **Default + Linen** (softened) **+ Stone** (muted) flavors, with a **High Contrast** variant for Light, Dusk, and Dark. Dim has no High Contrast variant — its mid-tone parchment background can't keep the syntax palette perceptually separable at that contrast level.
 
 ## Install
 
@@ -33,9 +46,9 @@ Built from OKLch color space for perceptually uniform contrast across every mode
 2. Search **"Dilmune Theme"**
 3. Install, then `Cmd+K Cmd+T` to pick a variant
 
-Or manually:
+Or manually — download the `.vsix` from the [Releases](https://github.com/Dilmune/dilmune-vscode-theme/releases) page, then install it (match the version you downloaded):
 ```bash
-code --install-extension dilmune-theme-1.1.0.vsix
+code --install-extension dilmune-theme-1.2.0.vsix
 ```
 
 ## Recommended Setup

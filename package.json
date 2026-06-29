@@ -2,7 +2,7 @@
   "name": "dilmune-theme",
   "displayName": "Dilmune Theme",
   "description": "Warm, bold color themes built on terracotta, sage, and verdigris. Eye-comfortable in any light — from cream parchment to candlelit dusk to blue-black night.",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "publisher": "dilmune",
   "license": "MIT",
   "icon": "icon.png",
@@ -133,6 +133,7 @@
     ]
   },
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "build": "tsx scripts/build.ts",
     "dev": "tsx watch scripts/build.ts",
     "package": "npm run build && vsce package",

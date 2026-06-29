@@ -13,3 +13,4 @@ package-lock.json
 docs/
 contrast-report.md
 .claude/
+**/.DS_Store

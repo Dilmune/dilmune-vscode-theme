@@ -10,4 +10,5 @@ declare module 'culori' {
   export function parse(color: string): { mode: string } | undefined
   export function oklch(color: { mode: string }): Oklch | undefined
   export function formatHex(color: Oklch | { mode: string; l?: number; c?: number; h?: number }): string
+  export function wcagContrast(a: { mode: string }, b: { mode: string }): number
 }
