@@ -72,6 +72,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'titleBar.inactiveForeground': colors.mutedForeground,
     'terminal.foreground': colors.foreground,
     'peekViewResult.selectionForeground': colors.foreground,
+    'peekViewResult.selectionBackground': withOpacity(colors.primary, 0.20),
     'notifications.foreground': colors.foreground,
     'input.foreground': colors.foreground,
     'input.placeholderForeground': colors.mutedForeground,
@@ -116,6 +117,9 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'statusBar.border': colors.border,
     'notifications.border': colors.border,
     'input.border': colors.border,
+    'inputOption.activeBorder': colors.primary,
+    'inputOption.activeBackground': withOpacity(colors.primary, 0.20),
+    'inputOption.activeForeground': colors.foreground,
     'dropdown.border': colors.border,
     'quickInput.border': colors.border,
     'editorHoverWidget.border': colors.border,
@@ -125,6 +129,10 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'editorError.foreground': colors.destructive,
     'editorWarning.foreground': colors.warning,
     'editorInfo.foreground': colors.info,
+    'editorHint.foreground': colors.mutedForeground,
+    'problemsErrorIcon.foreground': colors.destructive,
+    'problemsWarningIcon.foreground': colors.warning,
+    'problemsInfoIcon.foreground': colors.info,
     'list.errorForeground': colors.destructive,
     'list.warningForeground': colors.warning,
     'testing.iconPassed': colors.success,
@@ -204,6 +212,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'inputValidation.infoBorder': colors.info,
 
     // ── Editor overview ruler (right gutter) ─────────────────────
+    'editorOverviewRuler.border': withOpacity(colors.border, 0.5),
     'editorOverviewRuler.errorForeground': colors.destructive,
     'editorOverviewRuler.warningForeground': colors.warning,
     'editorOverviewRuler.infoForeground': colors.info,
@@ -323,7 +332,9 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
 
     // ── Merge conflict ───────────────────────────────────────────
     'merge.currentHeaderBackground': withOpacity(colors.success, 0.25),
+    'merge.currentContentBackground': withOpacity(colors.success, 0.10),
     'merge.incomingHeaderBackground': withOpacity(colors.info, 0.25),
+    'merge.incomingContentBackground': withOpacity(colors.info, 0.10),
 
     // ── Minimap ──────────────────────────────────────────────────
     'minimap.background': colors.background,
@@ -343,6 +354,7 @@ export function buildEditorColors(colors: BaseColors, mode: Mode, syntax?: Synta
     'scrollbarSlider.hoverBackground': withOpacity(colors.mutedForeground, 0.35),
     'scrollbarSlider.activeBackground': withOpacity(colors.mutedForeground, 0.5),
     'scrollbar.shadow': withOpacity(colors.foreground, 0.08),
+    'widget.shadow': withOpacity('#000000', isLight ? 0.18 : 0.45),
 
     // ── Bracket pair colorization ────────────────────────────────
     'editorBracketHighlight.foreground1': hex(isLight ? 0.50 : 0.70, 0.14, 28),

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1
+
+- Theme completeness pass — no UI surface falls back to VS Code defaults anymore
+- Merge-conflict **content** backgrounds (current/incoming), not just headers
+- Search box active-option border/background, peek-result selection, overview-ruler border, widget shadows
+- Diagnostics: editor hint color and Problems-panel error/warning/info icons
+- **+12 color keys per theme** (370 total, 372 for High Contrast)
+
 ## 1.2.0
 
 - Quality upgrade
