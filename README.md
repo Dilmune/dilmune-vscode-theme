@@ -1,12 +1,14 @@
 # Dilmune Theme
 
-A warm, earthy theme that actually cares about contrast. If you like Gruvbox or Catppuccin but want something that feels like aged paper and terracotta — Dilmune is for you.
+Warm, earthy color themes for VS Code. Terracotta, sage, and verdigris on backgrounds that run from cream parchment to candlelit dusk to blue-black night.
 
-Built from OKLch color space for perceptually uniform contrast across every mode.
+Every color is generated in OKLch and checked for WCAG AA contrast at build time. The build fails if any text drops below the contrast bar or any two syntax colors land too close together, so readability is enforced rather than eyeballed.
+
+Named after the ancient Dilmune civilization.
 
 ## Screenshots
 
-### Dilmune Dusk (Flagship)
+### Dilmune Dusk (flagship)
 ![Dilmune Dusk](screenshots/dusk.png)
 
 ### Dilmune Light
@@ -20,35 +22,34 @@ Built from OKLch color space for perceptually uniform contrast across every mode
 
 ## Themes
 
-| Theme | Type | Description |
-|-------|------|-------------|
-| **Dilmune Dusk** | Dark | Warm candlelit brown — the flagship |
-| **Dilmune Dusk Linen** | Dark | Softened, gently lifted |
-| **Dilmune Dusk Stone** | Dark | Muted, reduced chroma |
-| **Dilmune Dusk High Contrast** | HC Dark | Accessibility variant |
-| **Dilmune Light** | Light | Warm cream parchment |
-| **Dilmune Light Linen** | Light | Softened |
-| **Dilmune Light Stone** | Light | Muted |
-| **Dilmune Light High Contrast** | HC Light | Accessibility variant |
-| **Dilmune Dim** | Light | Mid-tone parchment — between light and dark |
-| **Dilmune Dim Linen** | Light | Softened |
-| **Dilmune Dim Stone** | Light | Muted |
-| **Dilmune Dark** | Dark | Deep blue-black |
-| **Dilmune Dark Linen** | Dark | Softened |
-| **Dilmune Dark Stone** | Dark | Muted |
-| **Dilmune Dark High Contrast** | HC Dark | Accessibility variant |
+Four modes, one for each kind of light:
 
-Every mode comes in **Default + Linen** (softened) **+ Stone** (muted) flavors, with a **High Contrast** variant for Light, Dusk, and Dark. Dim has no High Contrast variant — its mid-tone parchment background can't keep the syntax palette perceptually separable at that contrast level.
+| Mode | Type | Background |
+|------|------|------------|
+| **Dusk** | Dark | Warm candlelit brown. The flagship. |
+| **Light** | Light | Warm cream parchment. |
+| **Dark** | Dark | Deep blue-black with vivid syntax. |
+| **Dim** | Light | Mid-tone parchment, between light and dark. |
+
+Each mode ships in three flavors, plus a high-contrast build where the contrast math allows it:
+
+- **Default**: the tuned baseline.
+- **Linen**: lifted background, slightly softened.
+- **Stone**: lower chroma, a calmer surface.
+- **High Contrast**: stronger separation and borders. Available for Light, Dusk, and Dark.
+
+Dim has no high-contrast build. Its mid-tone background cannot push the syntax colors far enough apart to clear the contrast bar, and shipping one anyway would mean lowering the standard. Fifteen themes in total.
 
 ## Install
 
-1. Open **Extensions** (`Cmd+Shift+X` / `Ctrl+Shift+X`)
-2. Search **"Dilmune Theme"**
-3. Install, then `Cmd+K Cmd+T` to pick a variant
+1. Open Extensions (`Cmd+Shift+X` or `Ctrl+Shift+X`).
+2. Search for "Dilmune Theme".
+3. Install it, then press `Cmd+K Cmd+T` to pick a variant.
 
-Or manually — download the `.vsix` from the [Releases](https://github.com/Dilmune/dilmune-vscode-theme/releases) page, then install it (match the version you downloaded):
+To install a build by hand, download the `.vsix` from [Releases](https://github.com/Dilmune/dilmune-vscode-theme/releases) and run:
+
 ```bash
-code --install-extension dilmune-theme-1.2.0.vsix
+code --install-extension dilmune-theme-1.2.1.vsix
 ```
 
 ## Recommended Setup
@@ -69,23 +70,21 @@ code --install-extension dilmune-theme-1.2.0.vsix
 }
 ```
 
-[JetBrains Mono](https://www.jetbrains.com/lp/mono/) is our pick. [Fira Code](https://github.com/tonsky/FiraCode) and [Cascadia Code](https://github.com/microsoft/cascadia-code) also work well.
+[JetBrains Mono](https://www.jetbrains.com/lp/mono/) is the recommended font. [Fira Code](https://github.com/tonsky/FiraCode) and [Cascadia Code](https://github.com/microsoft/cascadia-code) also work well.
 
 ## Language Support
 
-Hand-tested: Go, TypeScript, TSX/JSX, Python, Rust, Java, C#, C/C++, PHP, SQL, CSS, JSON, YAML, Markdown.
-
-Works with every language VS Code supports.
+Tuned and tested by hand for Go, TypeScript, TSX/JSX, Python, Rust, Java, C#, C and C++, PHP, SQL, CSS, JSON, YAML, and Markdown. Every other language VS Code supports works through its default grammars.
 
 ## Color Philosophy
 
-Every color in Dilmune is defined in OKLch — a perceptually uniform color space where equal numeric changes produce equal visual changes. This means:
+Every color is defined in OKLch, a color space where equal numeric steps look like equal visual steps. That turns three things from manual guesswork into mechanical guarantees:
 
-- Contrast ratios are enforced at build time (WCAG AA minimum)
-- No two syntax tokens are perceptually indistinguishable (delta-E > 5.0)
-- Variants are generated programmatically — consistency is mechanical, not manual
+- Contrast is enforced at build time, at a WCAG AA minimum.
+- No two syntax colors collide. The build measures perceptual distance and fails if any pair sits too close.
+- Variants are generated, not hand-painted, so they stay consistent across all fifteen themes.
 
-The palette: terracotta (keywords), sage (strings), verdigris (functions), clay-rose (types), amber (constants), fossil (decorators), dune (operators). All grounded in warm earth tones inspired by the ancient Dilmune civilization.
+The palette: terracotta for keywords, sage for strings, verdigris for functions, clay-rose for types, amber for constants, fossil for decorators, dune for operators. All of it drawn from warm earth tones, named for the ancient Dilmune civilization.
 
 ## License
 
